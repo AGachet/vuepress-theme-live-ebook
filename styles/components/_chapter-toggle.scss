@@ -1,0 +1,13 @@
+.chapter-toggle {
+  display: inline-block;
+  font-size: $fs-0;
+  font-weight: $fw-bold;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  color: $light-grey-color;
+
+  &:focus {
+    outline: 0;
+  }
+}

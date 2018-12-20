@@ -1,0 +1,42 @@
+{
+  "name": "vuepress-theme-live-ebook",
+  "version": "1.0.0",
+  "description": "",
+  "author": "michalsnik <msajnog93@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "vuepress",
+    "theme"
+  ],
+  "homepage": "https://github.com/netguru/vuepress-theme-live-ebook",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netguru/vuepress-theme-live-ebook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/netguru/vuepress-theme-live-ebook/issues"
+  },
+  "main": "Layout.vue",
+  "scripts": {
+    "lint": "eslint --fix --ext .js,.vue ."
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.4.0",
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0"
+  },
+  "peerDependencies": {
+    "vuepress": "^0.14",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-svg-loader": "^0.11.0"
+  }
+}

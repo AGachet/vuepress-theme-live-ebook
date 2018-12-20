@@ -1,0 +1,41 @@
+<template>
+  <div class="share-buttons">
+    <a
+      v-if="twitter"
+      :href="twitterHref"
+      rel="nofollow"
+      target="_blank"
+      title="Share on Twitter"
+      class="share-buttons__icon"
+    >
+      <TwitterIcon />
+    </a>
+  </div>
+</template>
+
+<script>
+import TwitterIcon from '@theme/assets/svg/twitter.svg'
+
+export default {
+  components: {
+    TwitterIcon,
+  },
+
+  computed: {
+    twitter () {
+      return this.$site.themeConfig.twitter
+    },
+
+    twitterHref () {
+      return this.twitter && 'https://twitter.com/intent/tweet?' +
+        `text=${this.$page.title}&` +
+        `&url=${this.$page.path}` +
+        `&via=${this.twitter.via}` +
+        `&related=${this.twitter.username}`
+    },
+  },
+}
+</script>
+
+<style scoped lang="scss">
+</style>
