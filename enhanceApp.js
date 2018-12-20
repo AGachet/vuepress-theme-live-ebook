@@ -1,3 +1,4 @@
+import VueScrollTo from 'vue-scrollto'
 import BaseImage from '@theme/global-components/BaseImage.vue'
 import BaseQA from '@theme/global-components/BaseQA.vue'
 import BaseQuote from '@theme/global-components/BaseQuote.vue'
@@ -37,6 +38,11 @@ const dataMixin = {
 }
 
 export default ({ Vue, options }) => {
+  Vue.use(VueScrollTo, {
+    onStart (el) {
+      console.log('scrolling to', el)
+    },
+  })
   Vue.mixin(dataMixin)
   Vue.component('BaseImage', BaseImage)
   Vue.component('BaseQA', BaseQA)

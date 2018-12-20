@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.4.0",
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vue-scrollto": "^2.13.0"
   },
   "devDependencies": {
     "eslint": "^5.5.0",
@@ -34,9 +35,9 @@
     "eslint-plugin-vue": "^5.0.0"
   },
   "peerDependencies": {
-    "vuepress": "^0.14",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "vue-svg-loader": "^0.11.0"
+    "vue-svg-loader": "^0.11.0",
+    "vuepress": "^0.14"
   }
 }

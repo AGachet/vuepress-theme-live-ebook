@@ -1,0 +1,70 @@
+<template>
+  <div class="arrows">
+    <RouterLink
+      :to="{ path: prevUrl }"
+      class="arrow"
+      :class="{
+        isDisabled: !prevUrl
+      }"
+    >
+      <ArrowLeft />
+    </RouterLink>
+    <RouterLink
+      :to="{ path: nextUrl }"
+      class="arrow"
+      :class="{
+        isDisabled: !nextUrl
+      }"
+    >
+      <ArrowRight />
+    </RouterLink>
+  </div>
+</template>
+
+<script>
+import ArrowLeft from '@theme/assets/svg/arrow-left.svg'
+import ArrowRight from '@theme/assets/svg/arrow-right.svg'
+
+export default {
+  components: {
+    ArrowLeft,
+    ArrowRight,
+  },
+  computed: {
+    currentPageIndex () {
+      return this.$chapters.indexOf(this.$page)
+    },
+
+    prevPage () {
+      return this.$chapters[this.currentPageIndex - 1] || null
+    },
+
+    nextPage () {
+      return this.$chapters[this.currentPageIndex + 1] || null
+    },
+
+    prevUrl () {
+      return this.prevPage ? this.prevPage.path : null
+    },
+
+    nextUrl () {
+      return this.nextPage ? this.nextPage.path : null
+    },
+  },
+}
+</script>
+
+<style scoped lang="stylus">
+.arrows
+  display: flex
+
+.arrow
+  &.isDisabled
+    opacity .5
+    pointer-events none
+  svg
+    fill #b3b3b3
+
+.arrow + .arrow
+  margin-left .7rem
+</style>

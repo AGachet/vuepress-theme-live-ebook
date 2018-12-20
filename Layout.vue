@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
-    <component
-      :is="$layout"
-      :key="$page.path"
-    />
-  </div>
+  <Component
+    :is="$layout"
+    :key="$page.path"
+  />
 </template>
 
 <script>
@@ -29,4 +27,9 @@ export default {
 }
 </script>
 
-<style lang="scss" src="@theme/styles/application.scss"/>
+<style lang="stylus">
+body.no-scroll
+  position fixed
+</style>
+
+<style lang="scss" src="@theme/styles/application.scss" />

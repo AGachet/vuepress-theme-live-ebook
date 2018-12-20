@@ -87,6 +87,11 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
+bezier-easing@^2.0.3:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
+  integrity sha1-wE3+i5JtbsrKGBPWn/F5t8ICXYY=
+
 bootstrap-sass@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.4.0.tgz#b1c330a56782347f626d31d497fa4aea16b3f99b"
@@ -1015,6 +1020,13 @@ vue-eslint-parser@^4.0.2:
     espree "^4.1.0"
     esquery "^1.0.1"
     lodash "^4.17.11"
+
+vue-scrollto@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/vue-scrollto/-/vue-scrollto-2.13.0.tgz#fe23c9e5d684271c48154e8d504370cd40a8d6fd"
+  integrity sha512-ZjvWhY2LbEGqbtvDrBBm04AvgNfYGySJnakyHXxgv4UNlM0hRpkN1UKjKqB8J8U96YOEra+WjxmhujrBGeshbA==
+  dependencies:
+    bezier-easing "^2.0.3"
 
 vue@^2.5.16:
   version "2.5.16"

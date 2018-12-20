@@ -1,46 +1,37 @@
 <template>
-  <div class="page">
-    <div class="container-fluid">
-      <div class="row">
-        <SubNav
-          :prev-url="prevPage && prevPage.path"
-          :next-url="nextPage && nextPage.path"
-        />
+  <div class="page-chapter">
+    <ChapterNav class="page-chapter__nav" />
 
-        <article class="col-xs-12 col-md-8 col-md-offset-3 chapter-container">
-          <ShareButtons />
+    <article class="col-xs-12 col-md-8 col-md-offset-3 chapter-container">
+      <ShareButtons />
 
-          <div class="chapter">
-            <div class="small-title chapter__book-title">
-              {{ $site.title }}
-            </div>
+      <div class="chapter">
+        <div class="small-title chapter__book-title">
+          {{ $site.title }}
+        </div>
 
-            <div class="chapter__number">
-              {{ $page.frontmatter.chapter_number }}
-            </div>
+        <div class="chapter__number">
+          {{ $page.frontmatter.chapter_number }}
+        </div>
 
-            <div class="chapter__content">
-              <Content :key="$page.path" />
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="row bottom-nav-container">
-        <div class="col-xs-12 col-md-8 col-md-offset-3">
-          <BottomNav
-            :prev-page="prevPage"
-            :next-page="nextPage"
-          />
+        <div class="chapter__content">
+          <Content :key="$page.path" />
         </div>
       </div>
+    </article>
+
+    <div class="bottom-nav-container">
+      <ChapterBottomNav
+        :prev-page="prevPage"
+        :next-page="nextPage"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import SubNav from '@theme/components/SubNav'
-import BottomNav from '@theme/components/BottomNav'
+import ChapterNav from '@theme/components/ChapterNav'
+import ChapterBottomNav from '@theme/components/ChapterBottomNav'
 import ShareButtons from '@theme/components/ShareButtons'
 
 const KEY_RIGHT = 39
@@ -48,8 +39,8 @@ const KEY_LEFT = 37
 
 export default {
   components: {
-    SubNav,
-    BottomNav,
+    ChapterNav,
+    ChapterBottomNav,
     ShareButtons,
   },
 
