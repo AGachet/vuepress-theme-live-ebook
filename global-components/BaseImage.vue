@@ -36,13 +36,12 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-@import '@theme/styles/settings/_typography-variables.scss';
+<style scoped lang="stylus">
+@require '~@theme/styles/shared'
 
-.base-image {
-  margin: $base-sizing auto;
-  max-width: 100% !important;
-  width: initial !important;
-  height: auto !important;
-}
+.base-image
+  margin $base-sizing auto
+  max-width 100% !important
+  width initial !important
+  height auto !important
 </style>

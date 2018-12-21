@@ -126,7 +126,6 @@ export default {
   display block
 
   &__show-all
-    reset-btn()
     display inline-block
     font-size $fs-0
     font-weight $fw-bold

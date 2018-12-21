@@ -29,7 +29,6 @@ export default {
 
 .chapter-section
   &__btn
-    reset-btn()
     padding 1em 0
     text-align left
     font-size $fs-0

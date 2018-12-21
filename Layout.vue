@@ -27,12 +27,4 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-body.no-scroll
-  position fixed
-
-.chapters-list-move
-  transition transform 1s
-</style>
-
-<style lang="scss" src="@theme/styles/application.scss" />
+<style lang="stylus" src="@theme/styles/app.styl" />
