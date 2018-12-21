@@ -68,5 +68,49 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="stylus">
+@require '~@theme/styles/shared'
+
+.c-dosndonts
+  display flex
+  margin-top 2.5rem
+
+  &__introduction
+    margin-bottom $base-sizing
+
+  &__container
+    width 50%
+    padding-left 1.5rem
+    margin-bottom 1.5em
+    border-top 4px solid $c-green
+
+    &--donts
+      border-color $c-red
+
+  &__heading
+    margin-top 38px
+    margin-bottom 28px
+    font-size $fs-1
+    font-weight $fw-bold
+    color $c-green
+    display flex
+    align-items center
+
+    &--donts
+      color $c-red
+
+  &__icon
+    margin-right 0.5rem
+    height 24px
+
+  li
+    margin-bottom $base-sizing
+    padding-left 0
+    font-size $fs-2
+    line-height 1.33rem
+    list-style-type none
+    text-indent 0
+
+    &::before
+      content none
 </style>
