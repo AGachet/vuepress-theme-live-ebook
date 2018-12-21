@@ -165,6 +165,9 @@ export default {
   background $c-white
   box-shadow 0 0 25px rgba(0, 0, 0, 0.12)
 
+  @media (min-width $screen-sm-min)
+    width 360px
+
   &__exit-button
 
   &__logo

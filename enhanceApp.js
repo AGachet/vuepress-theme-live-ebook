@@ -19,26 +19,12 @@ const dataMixin = {
         page.frontmatter.layout === 'chapter'
       )
     },
-
-    $navigation () {
-      return [
-        {
-          text: 'Lorem',
-          link: '',
-          items: [
-            {
-              text: 'Ipsum',
-              link: '',
-            },
-          ],
-        },
-      ]
-    },
   },
 }
 
 export default ({ Vue, options }) => {
   Vue.use(VueScrollTo, {
+    offset: -30,
     onStart (el) {
       console.log('scrolling to', el)
     },

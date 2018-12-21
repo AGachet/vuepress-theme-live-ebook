@@ -1,8 +1,9 @@
 <template>
   <div class="page-chapter">
-    <ChapterNav class="page-chapter__nav" />
+    <ChapterNavMobile class="page-chapter__mobile-nav" />
+    <ChapterNavSidebar class="page-chapter__sidebar-nav" />
 
-    <article class="col-xs-12 col-md-8 col-md-offset-3 chapter-container">
+    <article class="chapter-container">
       <ShareButtons />
 
       <div class="chapter">
@@ -18,19 +19,20 @@
           <Content :key="$page.path" />
         </div>
       </div>
-    </article>
 
-    <div class="bottom-nav-container">
-      <ChapterBottomNav
-        :prev-page="prevPage"
-        :next-page="nextPage"
-      />
-    </div>
+      <div class="chapter__bottom-nav">
+        <ChapterBottomNav
+          :prev-page="prevPage"
+          :next-page="nextPage"
+        />
+      </div>
+    </article>
   </div>
 </template>
 
 <script>
-import ChapterNav from '@theme/components/ChapterNav'
+import ChapterNavSidebar from '@theme/components/ChapterNavSidebar'
+import ChapterNavMobile from '@theme/components/ChapterNavMobile'
 import ChapterBottomNav from '@theme/components/ChapterBottomNav'
 import ShareButtons from '@theme/components/ShareButtons'
 
@@ -39,12 +41,15 @@ const KEY_LEFT = 37
 
 export default {
   components: {
-    ChapterNav,
+    ChapterNavSidebar,
+    ChapterNavMobile,
     ChapterBottomNav,
     ShareButtons,
   },
 
   created () {
+    document.body.classList.remove('no-scroll')
+
     if (typeof window !== 'undefined') {
       window.addEventListener('keyup', this.handleKeyUp)
     }
@@ -94,3 +99,173 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+@require '~@theme/styles/shared'
+
+$sidebar-width = 320px
+
+.page-chapter
+  @media (min-width $screen-md-min)
+    display flex
+
+  &__mobile-nav
+    @media (min-width $screen-md-min)
+      display none
+
+  &__sidebar-nav
+    display none
+    width $sidebar-width
+
+    @media (min-width $screen-md-min)
+      display block
+
+.chapter-container
+  margin-top 60px
+
+  @media (min-width $screen-md-min)
+    max-width 970px
+    flex 1
+    margin-top 0
+    margin-left $sidebar-width
+    border-left 1px solid $c-grey-very-light
+
+.chapter
+  padding $base-sizing * 2 1rem
+
+  @media (min-width: $screen-sm-min)
+    padding $base-sizing * 2 4rem
+
+  @media (min-width: $screen-md-min)
+    padding $base-sizing * 2 5.11rem 14rem
+
+  &__book-title
+    margin-bottom $base-sizing
+    font-weight $fw-semibold
+    line-height $base-sizing
+    text-align center
+    text-transform uppercase
+
+  &__number
+    font-size $fs-5
+    font-weight $fw-bold
+    text-align center
+    color $c-primary
+
+  &__bottom-nav
+    border-top 1px solid $c-gray-very-light
+</style>
+
+<style lang="stylus">
+@require '~@theme/styles/shared'
+
+.chapter__content
+  margin-top $base-sizing
+
+  p
+    margin $base-small-sizing 0
+    font-size $fs-rel-1
+    line-height $base-sizing
+
+  h1,
+  h2,
+  h3,
+  h4
+    // Needed for copy to clipboard button
+    position relative
+
+  h1
+    margin-top ($base-sizing * 2)
+    margin-bottom (2 * $base-small-sizing)
+    font-size $fs-7
+    font-weight $fw-bold
+    line-height (1.83 * $base-sizing)
+    text-align center
+
+    @media (min-width: $screen-md-min)
+      margin-bottom (3 * $base-sizing)
+      font-size $fs-8
+      line-height (2.06 * $base-sizing)
+
+  h2
+    margin 0
+    margin-top ($base-sizing * 2)
+    margin-bottom $base-small-sizing
+    font-size $fs-6
+    font-weight $fw-bold
+
+    @media (min-width $screen-md-min)
+      margin-bottom (0.953 * $base-sizing)
+
+  h3
+    margin $base-sizing 0 $base-small-sizing 0
+    font-size $fs-4
+    font-weight $fw-bold
+    line-height $base-sizing
+
+  h4,
+  h5
+    margin-top $base-sizing
+    margin-bottom $base-small-sizing
+    font-size $fs-rel-1
+    font-weight $fw-bold
+    line-height $base-sizing
+
+  a
+    color $c-primary
+
+  em
+    font-style italic
+
+  ol
+    li
+      @media (max-width $screen-sm-max)
+        padding-left 1em
+        text-indent 0
+      &::before
+        content none
+
+  ul
+    margin 0
+    margin-bottom $base-sizing
+    padding 0
+    list-style none
+
+  ul ul
+    margin-bottom 0
+    padding 0 0 0 1.5rem
+
+    li::before
+      width 8px
+      height 8px
+      content ''
+      display inline-block
+      margin-right 15px
+      margin-bottom 3px
+      font-size $fs-rel-1
+      background-color transparent
+      border 1px solid $c-primary
+      border-radius 8px
+
+  li
+    font-size $fs-rel-1
+    line-height $base-sizing
+
+    &::before
+      width 8px
+      height 8px
+      content ''
+      display inline-block
+      margin-right 15px
+      margin-bottom 3px
+      font-size $fs-rel-1
+      background-color $c-primary
+      border-radius 8px
+
+    p:first-of-type::first-letter
+      float left
+      padding 0
+      font-size $fs-rel-1
+      font-weight $fw-regular
+      line-height $base-sizing
+</style>

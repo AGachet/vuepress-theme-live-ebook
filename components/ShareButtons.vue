@@ -37,5 +37,13 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="stylus">
+@require '~@theme/styles/shared'
+
+.share-buttons
+  padding-top (0.84 * $base-sizing)
+  text-align right
+
+  &__icon
+    margin-right: 2.38rem
 </style>
