@@ -30,8 +30,7 @@ export default {
       return this.twitter && 'https://twitter.com/intent/tweet?' +
         `text=${this.$page.title}&` +
         `&url=${this.$page.path}` +
-        `&via=${this.twitter.via}` +
-        `&related=${this.twitter.username}`
+        `&via=${this.twitter}`
     },
   },
 }

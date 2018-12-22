@@ -1,121 +1,60 @@
-> This branch is for `vuepress 0.x`.
+# vuepress-theme-live-ebook
 
-> For `vuepress 1.x-alpha`, see the [next](https://github.com/meteorlxy/vuepress-theme-meteorlxy/tree/next) branch.
+This repository contains theme for [Vuepress](https://vuepress.vuejs.org), made specifically for creating live ebooks, like this one with ease: [https://design-process.netguru.co/chapters/01-project-introduction-and-setup.html](https://design-process.netguru.co)
 
-# Vuepress Theme - Meteorlxy
+> It's compatible with `vuepress 0.x`.
 
-Meteorlxy theme for [Vuepress](https://vuepress.vuejs.org)
+## Usage
 
-See demo on [my homepage](https://www.meteorlxy.cn)
-
-## Installation
-
+1. Install theme:
 ```sh
-# For vuepress 0.x
-yarn add vuepress-theme-meteorlxy
-# or
-npm install vuepress-theme-meteorlxy
-
-# For vuepress 1.x
-yarn add vuepress-theme-meteorlxy@next
-# or
-npm install vuepress-theme-meteorlxy@next
+yarn add vuepress-theme-live-ebook
 ```
 
-## Extra Config
+2. Install required peer dependencies:
+```sh
+yarn add vue-svg-loader
+```
 
-As Vuepress doesn't allow themes to access Vuepress's config by now, you have to add extra config in `.vupress/config.js` of your project.
-
-Here's the sample config of my own homepage:
-
+3. Create config `.vuepress/config.js`, here's the example one:
 ```js
 module.exports = {
-  title: 'Meteorlxy',
-  description: 'meteorlxy\'s homepage',
-  head: [
-    ['link', { rel: 'icon', href: '/assets/img/avator.jpg' }],
-  ],
-  locales: {
-    '/': {
-      lang: 'zh-CN',
-    },
-  },
-  theme: 'meteorlxy',
+  title: 'Design Process For Pros',
+  theme: 'live-ebook',
   themeConfig: {
-    personalInfo: {
-      nickname: 'meteorlxy',
-      description: 'Happy Coding<br/>Happy Life',
-      email: 'meteor.lxy@foxmail.com',
-      location: 'Xi\'an City, China',
-      organization: 'Xi\'an Jiao Tong University',
-      avator: '/assets/img/avator.jpg',
-      sns: {
-        facebook: {
-          account: 'meteorlxy.cn',
-          link: 'https://www.facebook.com/meteorlxy.cn'
-        },
-        github: {
-          account: 'meteorlxy',
-          link: 'https://github.com/meteorlxy'
-        },
-        linkedin: {
-          account: 'meteorlxy',
-          link: 'http://www.linkedin.com/in/meteorlxy'
-        },
-        twitter: {
-          account: 'meteorlxy_cn',
-          link: 'https://twitter.com/meteorlxy_cn'
-        },
-        weibo: {
-          account: '@焦炭君_Meteor',
-          link: 'https://weibo.com/u/2039655434'
-        }
-      }
+    baseUrl: 'https://design-process.netguru.co',
+    exitUrl: 'https://www.netguru.co/design-process',
+    company: {
+      name: 'Netguru',
+      url: 'https://www.netguru.co',
+      logo: '/images/netguru.svg'
     },
-    // headerBackground priority: url > useGeo
-    headerBackground: {
-      // url: '/assets/img/bg.jpg',
-      useGeo: true
-    },
-    lastUpdated: true,
-    nav: [
-      { text: 'Home', link: '/', exact: true },
-      { text: 'Posts', link: '/posts/', exact: false  },
-      { text: 'About', link: '/about/', exact: false  }, 
-    ]
+    twitter: 'netguru',
   },
-  markdown: {
-    toc: {
-      includeLevel: [2, 3, 4]
-    }
-  },
-  chainWebpack: (config, isServer) => {
-    if (isServer === false) {
-      config.node.set('Buffer', false)
 
-      config.optimization.splitChunks({
-        maxInitialRequests: 5,
-        cacheGroups: {
-          vue: {
-            test: /[\\/]node_modules[\\/](vue|vue-router)[\\/]/,
-            name: 'vendor.vue',
-            chunks: 'all'
-          },
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            priority: -10,
-            name: 'vendor.commons',
-            chunks: 'all'
-          }
-        }
-      })
-    }
+  chainWebpack: (config) => {
+    const svgRule = config.module.rule('svg');
+
+    svgRule.uses.clear();
+
+    svgRule
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader');
   }
 }
 ```
 
-## TODOS
+## Customization
 
-- [ ] Comments Support
-- [ ] SEO
-- [ ] General enhancement
+In order to customize basic informations, update `themeConfig` properties in  `.vuepress/config.js`.
+
+You can also override [styles/variables.stylus](default stylus variables), in order to do so create `.vuepress/override.styl` and override them there. Recommended variables to override:
+```
+$ff-base = Helvetica
+$ff-serif = Georgia, sans-serif
+$c-primary = #ff9a57
+```
+
+> Do NOT put regular CSS inside `override.styl` - it's only for overriding variables.
+
+If you want to add custom CSS, create `.vuepress/style.styl`.
