@@ -64,4 +64,5 @@ export default {
 
   &__bullet
     margin-right 1rem
+    color $c-primary
 </style>

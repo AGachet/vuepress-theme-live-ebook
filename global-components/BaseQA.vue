@@ -57,7 +57,7 @@ export default {
       font-weight $fw-regular
 
       .c-qa__bullet
-        background-color lighten($c-orange, 20%)
+        background-color lighten($c-primary, 20%)
 
   &__bullet
     circle 2rem
@@ -68,6 +68,6 @@ export default {
     margin-right 1rem
     font-size $fs-1
     font-weight $fw-bold
-    background-color $c-orange
+    background-color $c-primary
     color $c-white
 </style>

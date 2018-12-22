@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@require '~@theme/styles/shared'
+
 .header
   display flex
   align-items center
@@ -79,6 +81,6 @@ export default {
 
   span
     margin-right 1rem
-    color #ff9a57
+    color $c-primary
     font-weight 800
 </style>
