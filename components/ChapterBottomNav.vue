@@ -7,7 +7,7 @@
         class="chapter-navigation__link"
       >
         <div class="chapter-navigation__wrapper">
-          <div class="small-title chapter-navigation__direction">
+          <div class="chapter-navigation__direction">
             Previous
           </div>
           <div class="chapter-navigation__title">
@@ -17,7 +17,7 @@
             <ArrowLeft />
           </div>
         </div>
-        <div class="small-title chapter-navigation__chapter-number">
+        <div class="chapter-navigation__chapter-number">
           {{ prevPage.frontmatter.chapter_number }}
         </div>
       </RouterLink>
@@ -30,7 +30,7 @@
         class="chapter-navigation__link"
       >
         <div class="chapter-navigation__wrapper">
-          <div class="small-title chapter-navigation__direction">
+          <div class="chapter-navigation__direction">
             Next
           </div>
           <div class="chapter-navigation__title">
@@ -40,7 +40,7 @@
             <ArrowRight />
           </div>
         </div>
-        <div class="small-title chapter-navigation__chapter-number">
+        <div class="chapter-navigation__chapter-number">
           {{ nextPage.frontmatter.chapter_number }}
         </div>
       </RouterLink>
@@ -108,11 +108,13 @@ $root = '.chapter-navigation'
     position relative
 
   &__direction
-    font-weight $fw-bold
-    text-transform uppercase
-
   &__chapter-number
+    font-size $fs-1
     font-weight $fw-bold
+    color $c-grey-light
+
+  &__direction
+    text-transform uppercase
 
   &__title
     position relative
@@ -131,23 +133,15 @@ $root = '.chapter-navigation'
 
     {$root}__arrow
       background-color $c-white
-      transition background-color 0.5s ease
-
-    .svg-arrow g
-      fill $c-black
-      transition fill 0.5s ease
+      color $c-black
+      transition background-color 0.5s ease, color 0.5s ease
 
     &:hover
       text-decoration none
 
       {$root}__arrow
         background-color $c-primary
-
-      .svg-arrow
-        margin 0 auto
-
-        g
-          fill $white-color
+        color $c-white
 
   &__arrow
     display none

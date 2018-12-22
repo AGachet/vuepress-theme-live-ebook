@@ -59,11 +59,11 @@ export default {
   display: flex
 
 .arrow
+  color $c-grey-light
+
   &.isDisabled
     opacity .5
     pointer-events none
-  svg
-    fill #b3b3b3
 
 .arrow + .arrow
   margin-left .7rem

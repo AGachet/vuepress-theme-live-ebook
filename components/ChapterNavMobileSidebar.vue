@@ -215,6 +215,14 @@ export default {
       color $c-grey-light
       font-size $fs-1
 
+.chapter-number
+  position relative
+  display inline-block
+  margin 0 1rem 0 0
+  font-size $fs-4
+  font-weight $fw-bold
+  color $c-primary
+
 .close-nav
   width: 32px
   height 32px

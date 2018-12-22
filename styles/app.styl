@@ -1,39 +1,8 @@
-@require 'shared'
+@require 'variables'
+@require 'mixins'
+
 @require 'reset'
 
-*,
-*::after,
-*::before
-  -moz-osx-font-smoothing grayscale
-  -webkit-font-smoothing antialiased
-
-*
-  box-sizing border-box
-
-html
-  font-size $fs-2
-  line-height $base-sizing
-
-  @media (min-width: $screen-md-min)
-    font-size $fs-3
-
-body
-  font-family $ff-base
-
-body.no-scroll
-  position fixed
-
-.chapters-list-move
-  transition transform 1s
-
-.small-title
-  font-size $fs-1
-  color $c-grey-light
-
-.chapter-number
-  position relative
-  display inline-block
-  font-size $fs-4
-  font-weight $fw-bold
-  color $c-primary
-  margin 0 1rem 0 0
+@require 'base'
+@require 'markdown'
+@require 'animations'
