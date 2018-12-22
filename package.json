@@ -21,6 +21,7 @@
     "lint": "eslint --fix --ext .js,.vue ."
   },
   "dependencies": {
+    "markdown-it": "^8.4.2",
     "vue": "^2.5.16",
     "vue-scrollto": "^2.13.0"
   },

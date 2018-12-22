@@ -12,9 +12,10 @@
       <div class="c-qa__bullet">
         A
       </div>
-      <div class="c-qa__content">
-        {{ answer }}
-      </div>
+      <div
+        class="c-qa__content"
+        :inner-html.prop="answer | markdown"
+      />
     </div>
   </div>
 </template>

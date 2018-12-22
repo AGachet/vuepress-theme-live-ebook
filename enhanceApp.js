@@ -3,6 +3,13 @@ import BaseImage from '@theme/global-components/BaseImage.vue'
 import BaseQA from '@theme/global-components/BaseQA.vue'
 import BaseQuote from '@theme/global-components/BaseQuote.vue'
 import BaseComparison from '@theme/global-components/BaseComparison.vue'
+import md from 'markdown-it'
+
+const markdown = md({
+  html: true,
+  linkify: true,
+  typographer: true,
+})
 
 const dataMixin = {
   beforeRouteEnter (to, from, next) {
@@ -34,4 +41,8 @@ export default ({ Vue, options }) => {
   Vue.component('BaseQA', BaseQA)
   Vue.component('BaseQuote', BaseQuote)
   Vue.component('BaseComparison', BaseComparison)
+
+  Vue.filter('markdown', (value) => {
+    return markdown.render(value)
+  })
 }

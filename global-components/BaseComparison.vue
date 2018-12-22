@@ -15,9 +15,8 @@
           <li
             v-for="item in good"
             :key="item"
-          >
-            {{ item }}
-          </li>
+            :inner-html.prop="item | markdown"
+          />
         </ul>
       </div>
 
@@ -32,9 +31,8 @@
           <li
             v-for="item in bad"
             :key="item"
-          >
-            {{ item }}
-          </li>
+            :inner-html.prop="item | markdown"
+          />
         </ul>
       </div>
     </div>
