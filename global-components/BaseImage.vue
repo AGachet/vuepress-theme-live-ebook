@@ -40,8 +40,7 @@ export default {
 @require '~@theme/styles/shared'
 
 .base-image
+  display block
   margin $base-sizing auto
-  max-width 100% !important
-  width initial !important
-  height auto !important
+  max-width 100%
 </style>

@@ -39,11 +39,11 @@ export default {
 @require '~@theme/styles/shared'
 
 .c-qa
-  margin-bottom $base-sizing
+  margin $base-sizing 0
 
   &__item
     display flex
-    align-items top
+    align-items flex-start
     margin-bottom (0.674 * $base-sizing)
     font-size $fs-2
     font-weight $fw-bold
@@ -70,4 +70,7 @@ export default {
     font-weight $fw-bold
     background-color $c-primary
     color $c-white
+
+  >>> p
+    margin 0
 </style>

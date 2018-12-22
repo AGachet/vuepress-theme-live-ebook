@@ -49,6 +49,7 @@ export default {
     font-family $ff-serif
     font-size $fs-5
     font-style italic
+    line-height 1.4em
 
   &__author
     display flex

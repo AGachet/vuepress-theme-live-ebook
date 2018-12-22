@@ -13,12 +13,12 @@
           <div class="chapter-navigation__title">
             {{ prevPage.frontmatter.title }}
           </div>
-          <div class="chapter-navigation__arrow chapter-navigation__arrow--left">
-            <ArrowLeft />
+          <div class="chapter-navigation__chapter-number">
+            {{ prevPage.frontmatter.chapter_number }}
           </div>
         </div>
-        <div class="chapter-navigation__chapter-number">
-          {{ prevPage.frontmatter.chapter_number }}
+        <div class="chapter-navigation__arrow chapter-navigation__arrow--left">
+          <ArrowLeft />
         </div>
       </RouterLink>
     </div>
@@ -36,12 +36,12 @@
           <div class="chapter-navigation__title">
             {{ nextPage.frontmatter.title }}
           </div>
-          <div class="chapter-navigation__arrow">
-            <ArrowRight />
+          <div class="chapter-navigation__chapter-number">
+            {{ nextPage.frontmatter.chapter_number }}
           </div>
         </div>
-        <div class="chapter-navigation__chapter-number">
-          {{ nextPage.frontmatter.chapter_number }}
+        <div class="chapter-navigation__arrow">
+          <ArrowRight />
         </div>
       </RouterLink>
     </div>
@@ -76,10 +76,10 @@ export default {
 $root = '.chapter-navigation'
 
 {$root}
-  display: flex;
+  display flex
 
   &__block
-    width 50%;
+    width 50%
     padding-top $base-sizing
     padding-bottom (1.5 * $base-sizing)
 
@@ -118,6 +118,7 @@ $root = '.chapter-navigation'
 
   &__title
     position relative
+    margin 5px 0
     font-size $fs-2
     font-weight $fw-bold
     color $c-black
@@ -126,6 +127,7 @@ $root = '.chapter-navigation'
       font-size $fs-6
 
   &__link
+    position relative
     display flex
     height 100%
     justify-content space-between
@@ -147,8 +149,12 @@ $root = '.chapter-navigation'
     display none
 
     @media (min-width: $screen-sm-min)
-      pos absolute 1rem 1rem auto auto
       circle 2.33rem
+      position absolute
+      top 0
+      right 1rem
+      bottom 0
+      margin auto
       display flex
       align-items center
       justify-content center

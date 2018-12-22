@@ -55,6 +55,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@require '~@theme/styles/shared'
+
 .arrows
   display: flex
 

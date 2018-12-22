@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="c-dosndonts__introduction">
+    <p class="intro">
       {{ intro }}
-    </div>
-    <div class="c-dosndonts">
-      <div class="c-dosndonts__container">
-        <div class="c-dosndonts__heading">
+    </p>
+    <div class="comparison">
+      <div class="comparison__container">
+        <div class="comparison__heading">
           <DosIcon
-            class="c-dosndonts__icon"
+            class="comparison__icon"
           />
           DOs
         </div>
@@ -20,10 +20,10 @@
         </ul>
       </div>
 
-      <div class="c-dosndonts__container c-dosndonts__container--donts">
-        <div class="c-dosndonts__heading c-dosndonts__heading--donts">
+      <div class="comparison__container comparison__container--donts">
+        <div class="comparison__heading comparison__heading--donts">
           <DontsIcon
-            class="c-dosndonts__icon"
+            class="comparison__icon"
           />
           DON'Ts
         </div>
@@ -69,12 +69,13 @@ export default {
 <style scoped lang="stylus">
 @require '~@theme/styles/shared'
 
-.c-dosndonts
-  display flex
-  margin-top 2.5rem
+.intro
+  margin 0
+  font-weight $fw-bold
 
-  &__introduction
-    margin-bottom $base-sizing
+.comparison
+  display flex
+  margin-top 1.5rem
 
   &__container
     width 50%
