@@ -5,3 +5,12 @@
 .fade-enter,
 .fade-leave-to
   opacity 0
+
+.fade-up-enter-active,
+.fade-up-leave-active
+  transition opacity .5s, transform 0.5s $base-easing
+
+.fade-up-enter,
+.fade-up-leave-to
+  opacity 0
+  transform translateY(100px)

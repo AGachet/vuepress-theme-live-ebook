@@ -133,6 +133,7 @@ export default {
 
       setTimeout(() => {
         this.$router.push({ path: chapter.path })
+        this.sectionsHidden = false // in case of the same path
       }, 500)
     },
 
@@ -199,12 +200,12 @@ export default {
 // Animation: chapter-list
 
 .chapter-list-enter-active
-  transition transform 0.5s ease, opacity 0.5s ease
+  transition transform 0.5s $base-easing, opacity 0.5s
   transition-delay 0.5s
 
 .chapter-list-leave-active
   position absolute
-  transition transform 0s ease, opacity 0s ease
+  transition transform 0s $base-easing, opacity 0s
 
 .chapter-list-enter,
 .chapter-list-leave-to
@@ -212,10 +213,12 @@ export default {
   transform translateY(30px)
 
 .chapter-list-move
+  transition-duration 0.25s
   transition-delay 0.5s
 
   &.chapter-list-leave-active
     transition-delay 0s
+    transition-duration 0s
 
   .isSingleChapterVisible &:not(.chapter-list-leave-active).isActive
     transition-duration 0.5s
@@ -224,11 +227,11 @@ export default {
 // Animation: fade-right
 
 .fade-right-leave-active
-  transition transform 0.25s ease, opacity .25s ease
+  transition transform 0.25s ease, opacity .25s
   transition-delay 0s
 
 .fade-right-enter-active
-  transition transform 0.25s ease, opacity .25s ease
+  transition transform 0.25s ease, opacity .25s
   transition-delay 0.25s
 
 .fade-right-enter,
@@ -239,7 +242,7 @@ export default {
 // Animation: fade-right-appear
 
 .fade-right-appear-active
-  transition transform 0.25s ease, opacity .25s ease
+  transition transform 0.25s $base-easing, opacity .25s
 
 .fade-right-appear
   opacity 0

@@ -11,12 +11,22 @@
           {{ $site.title }}
         </div>
 
-        <div class="chapter__number">
-          {{ $page.frontmatter.chapter_number }}
-        </div>
+        <Transition
+          name="fade"
+          appear
+        >
+          <div class="chapter__number">
+            {{ $page.frontmatter.chapter_number }}
+          </div>
+        </Transition>
 
         <div class="chapter__content">
-          <Content :key="$page.path" />
+          <Transition
+            name="fade-up"
+            appear
+          >
+            <Content :key="$page.path" />
+          </Transition>
         </div>
       </div>
 
