@@ -1,11 +1,10 @@
 <template>
-  <Component
-    :is="isCurrent ? 'div' : 'router-link'"
-    :to="!isCurrent && { path: link }"
+  <div
     class="chapter-item"
     :class="{
-      isActive: isCurrent
+      isActive
     }"
+    @click="$emit('click')"
   >
     <div class="chapter-item__header">
       <span class="chapter-item__num">
@@ -16,7 +15,7 @@
     <h3 class="chapter-item__title">
       {{ title }}
     </h3>
-  </Component>
+  </div>
 </template>
 
 <script>
@@ -34,16 +33,12 @@ export default {
       type: String,
       default: null,
     },
+    isActive: {
+      type: Boolean,
+    },
   },
 
-  computed: {
-    isCurrent () {
-      return this.$page.frontmatter.chapter_number === this.number
-    },
-
-    itemComponent () {
-      return this.isCurrent ? 'div' : 'router-link'
-    },
+  methods: {
   },
 }
 </script>
