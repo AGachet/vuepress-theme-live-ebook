@@ -65,6 +65,10 @@ export default {
     }
   },
 
+  mounted () {
+    this.fixAnchorsOffset()
+  },
+
   beforeDestroy () {
     if (typeof window !== 'undefined') {
       window.removeEventListener('keyup', this.handleKeyUp)
@@ -105,6 +109,28 @@ export default {
         case KEY_RIGHT:
           return this.goToNext()
       }
+    },
+
+    // This method fixes offset for detecting sections on scroll
+    // it should be removed once vuepress is updated to 1.x
+    // and "headerOffsetTop" option is implemented
+    // in @vuepress/plugin-active-header-links
+    fixAnchorsOffset () {
+      const headers = this.$el.querySelectorAll('.header-anchor')
+
+      headers.forEach(header => {
+        const { parentNode, outerHTML } = header
+        parentNode.removeChild(header)
+
+        const headerWrapperHTML = `
+        <div class="fake-header-anchor">
+          ${outerHTML}
+        </div>
+        ${parentNode.innerHTML}
+      `.trim()
+
+        parentNode.innerHTML = headerWrapperHTML
+      })
     },
   },
 }

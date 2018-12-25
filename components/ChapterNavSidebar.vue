@@ -49,11 +49,12 @@
           :sections="chapterSections"
         >
           <ChapterSection
-            class="chapter-section"
+            class="chapter-section sidebar-link"
             slot="section"
             slot-scope="{ slug, title }"
             :slug="slug"
             :title="title"
+            :hash.prop="`#${slug}`"
           />
         </ChapterSections>
       </Transition>
