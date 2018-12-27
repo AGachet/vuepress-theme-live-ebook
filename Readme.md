@@ -13,7 +13,7 @@ yarn add vuepress-theme-live-ebook
 
 2. Install required peer dependencies:
 ```sh
-yarn add vue-svg-loader vue-scrollto
+yarn add vue-svg-loader
 ```
 
 3. Create config `.vuepress/config.js`, here's the example one:
