@@ -58,9 +58,8 @@ export default {
   },
 
   created () {
-    document.body.classList.remove('no-scroll')
-
-    if (typeof window !== 'undefined') {
+    if (!this.$ssrContext) {
+      document.body.classList.remove('no-scroll')
       window.addEventListener('keyup', this.handleKeyUp)
     }
   },
@@ -70,7 +69,7 @@ export default {
   },
 
   beforeDestroy () {
-    if (typeof window !== 'undefined') {
+    if (!this.$ssrContext) {
       window.removeEventListener('keyup', this.handleKeyUp)
     }
   },
