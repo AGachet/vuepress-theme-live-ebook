@@ -81,9 +81,9 @@ Chapter content goes here.
 
 See [example chapter](https://raw.githubusercontent.com/netguru/design-process/vuepress/chapters/01-project-introduction-and-setup.md) for reference.
 
-### Available components
+## Available components
 
-1. `BaseImage`
+### BaseImage
 
 If you need to use an image, place it in folder `.vuepress/public/images`. You can
 then use it using the `<BaseImage />` component, e.g.:
@@ -94,7 +94,7 @@ then use it using the `<BaseImage />` component, e.g.:
 
 The `img2x` property is optional. If you want you can also use regular markdown image syntax.
 
-2. `BaseQuote`
+### BaseQuote
 
 You can insert quotes by using following syntax:
 
@@ -108,7 +108,7 @@ You can insert quotes by using following syntax:
 This will produce a following quote:
 ![BaseQuote](docs-assets/base-quote.png?raw=true)
 
-3. `BaseQA`
+### BaseQA
 
 You can insert Q&A sections by using following syntax:
 ```html
@@ -120,7 +120,7 @@ You can insert Q&A sections by using following syntax:
 This will produce a following outcome:
 ![BaseQA](docs-assets/base-qa.png?raw=true)
 
-4. `BaseComparison`
+### BaseComparison
 
 You can insert DOs and DONT's sections by using following syntax:
 
