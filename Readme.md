@@ -13,14 +13,15 @@ yarn add vuepress-theme-live-ebook
 
 2. Install required peer dependencies:
 ```sh
-yarn add vue-svg-loader
+yarn add vue-svg-loader vue-scrollto
 ```
 
 3. Create config `.vuepress/config.js`, here's the example one:
 ```js
 module.exports = {
   title: 'Design Process For Pros',
-  theme: 'live-ebook',
+  description: 'Live E-Book with useful informations about Design Process',
+  theme: 'live-ebook', // Important! This is the name of this theme
   themeConfig: {
     baseUrl: 'https://design-process.netguru.co',
     exitUrl: 'https://www.netguru.co/design-process',
