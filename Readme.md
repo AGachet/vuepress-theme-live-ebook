@@ -47,6 +47,7 @@ module.exports = {
 
 ### Example e-book file tree:
 
+```
 your-ebook
 ├── .vuepress
 │   ├── public <-- publically available files
@@ -60,6 +61,7 @@ your-ebook
 │   ├── 02-dolor-sit.md
 │   └── 03-amet-consectetur.md
 └── package.json
+```
 
 ### Chapter format
 
