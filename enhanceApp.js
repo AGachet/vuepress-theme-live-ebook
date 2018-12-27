@@ -32,9 +32,6 @@ const dataMixin = {
 export default ({ Vue, options }) => {
   Vue.use(VueScrollTo, {
     offset: -30,
-    onStart (el) {
-      console.log('scrolling to', el)
-    },
   })
   Vue.mixin(dataMixin)
   Vue.component('BaseImage', BaseImage)
