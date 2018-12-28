@@ -6,18 +6,21 @@ This repository contains theme for [Vuepress](https://vuepress.vuejs.org), made 
 
 ## Usage
 
-1. Install theme:
+1. Create new vuepress project.
+
+2. Install theme:
 ```sh
 yarn add vuepress-theme-live-ebook
 ```
 
-2. Install required peer dependencies:
+3. Install required peer dependencies:
 ```sh
 yarn add vue-svg-loader
 ```
 
-3. Create config `.vuepress/config.js`, here's the example one:
+4. Create config `.vuepress/config.js`, here's the example one:
 ```js
+// .vuepress/config.js
 module.exports = {
   title: 'Design Process For Pros',
   description: 'Live E-Book with useful informations about Design Process',
@@ -44,6 +47,16 @@ module.exports = {
 }
 ```
 
+5. Create `index.md` file with the following content:
+
+```
+---
+layout: home
+---
+```
+
+> Alternatively you can also fork one of our E-Books, e.g. [PM Book](https://github.com/netguru/pm-book) and tweak it to your liking.
+
 ### Example e-book file tree:
 
 ```
@@ -59,6 +72,7 @@ your-ebook
 │   ├── 01-lorem-ipsum.md
 │   ├── 02-dolor-sit.md
 │   └── 03-amet-consectetur.md
+├── index.md <-- home page (required, although it's there only to redirect users to 1st chapter) 
 └── package.json
 ```
 
