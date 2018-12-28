@@ -138,7 +138,8 @@ export default {
 <style lang="stylus" scoped>
 @require '~@theme/styles/shared'
 
-$sidebar-width = 320px
+$sidebar-width = 25vw
+$sidebar-max-width = 420px
 
 .page-chapter
   @media (min-width $screen-md-min)
@@ -151,9 +152,13 @@ $sidebar-width = 320px
   &__sidebar-nav
     display none
     width $sidebar-width
+    border-right 1px solid $c-grey-very-light
 
     @media (min-width $screen-md-min)
       display block
+
+    @media (min-width $screen-lg-min)
+      max-width $sidebar-max-width
 
 .chapter-container
   margin-top 60px
@@ -163,16 +168,21 @@ $sidebar-width = 320px
     flex 1
     margin-top 0
     margin-left $sidebar-width
-    border-left 1px solid $c-grey-very-light
+
+  @media (min-width $screen-lg-min)
+    margin-left $sidebar-max-width
 
 .chapter
-  padding $base-sizing * 2 1rem
+  padding ($base-sizing * 2) $base-sizing
 
   @media (min-width: $screen-sm-min)
-    padding $base-sizing * 2 4rem
+    padding-right ($base-sizing * 2)
+    padding-left ($base-sizing * 2)
 
   @media (min-width: $screen-md-min)
-    padding $base-sizing * 2 5.11rem 14rem
+    padding-right ($base-sizing * 3)
+    padding-bottom ($base-sizing * 7)
+    padding-left ($base-sizing * 3)
 
   &__book-title
     margin-bottom $base-sizing
