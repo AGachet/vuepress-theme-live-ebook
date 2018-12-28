@@ -5,6 +5,7 @@
       v-for="section in sections"
       :slug="section.slug"
       :title="section.title"
+      :hash="getHash(section.slug)"
     />
   </ul>
 </template>
@@ -17,6 +18,12 @@ export default {
       default: null,
     },
   },
+
+  methods: {
+    getHash (slug) {
+      return `#${encodeURIComponent(slug)}`
+    }
+  }
 }
 </script>
 
