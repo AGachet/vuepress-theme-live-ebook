@@ -24,31 +24,11 @@
             v-for="chapter in $chapters"
             :key="chapter.frontmatter.chapter_number"
           >
-            <ul v-if="chapter.frontmatter.chapter_number === $page.frontmatter.chapter_number">
-              <li class="toc-h1 isActive">
-                <RouterLink :to="{ path: chapter.path }">
-                  <span class="chapter-number">
-                    {{ chapter.frontmatter.chapter_number }}
-                  </span>
-                  {{ chapter.title }}
-                </RouterLink>
-              </li>
-              <li
-                class="toc-h2"
-                :class="{
-                  isActive: section.slug === activeSection
-                }"
-                v-for="section in chapter.headers.filter(chapter => chapter.level === 2)"
-                :key="section.slug"
-              >
-                <a
-                  :href="`#${section.slug}`"
-                  @click.prevent="handleSectionChange(section.slug)"
-                >
-                  {{ section.title }}
-                </a>
-              </li>
-            </ul>
+            <ChapterMobileSections
+              v-if="chapter.frontmatter.chapter_number === $page.frontmatter.chapter_number"
+              :chapter="chapter"
+              @sectionChange="handleSectionChange"
+            />
             <RouterLink
               v-else
               :to="{ path: chapter.path }"
@@ -72,6 +52,7 @@
 <script>
 import ExitButton from './ExitButton'
 import CompanyLogo from './CompanyLogo'
+import ChapterMobileSections from './ChapterMobileSections'
 
 const KEY_ESCAPE = 27
 
@@ -79,6 +60,7 @@ export default {
   components: {
     ExitButton,
     CompanyLogo,
+    ChapterMobileSections,
   },
 
   props: {
@@ -174,33 +156,15 @@ export default {
     margin-top 20px
 
 .sidebar-content
-  ul
+  >>> ul
     margin 0
     padding-left 0
     list-style-type none
 
-  li
+  >>> li
     position relative
 
-  .toc-h1.isActive a
-    color inherit
-
-    .chapter-number
-      color $c-primary
-
-  .toc-h2
-    padding-left 50px
-
-    &.isActive::before
-      content ''
-      position absolute
-      left 27px
-      width 1px
-      height 100%
-      display block
-      background $c-primary
-
-  a
+  >>> a
     display block
     font-size $fs-1
     font-weight $fw-semibold
@@ -215,7 +179,7 @@ export default {
       color $c-grey-light
       font-size $fs-1
 
-.chapter-number
+>>> .chapter-number
   position relative
   display inline-block
   margin 0 1rem 0 0

@@ -22,7 +22,7 @@ const dataMixin = {
 
   computed: {
     $chapters () {
-      return this.$site.pages.filter(page =>
+      return this.$site.pages && this.$site.pages.filter(page =>
         page.frontmatter.layout === 'chapter'
       )
     },

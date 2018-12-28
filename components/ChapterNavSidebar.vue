@@ -96,7 +96,7 @@ export default {
 
   computed: {
     chapterSections () {
-      return this.$page.headers.filter(header => header.level === 2)
+      return this.$page.headers && this.$page.headers.filter(header => header.level === 2)
     },
 
     isSingleChapterVisible () {
