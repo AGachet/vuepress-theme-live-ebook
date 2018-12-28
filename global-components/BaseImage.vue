@@ -31,7 +31,7 @@ export default {
 
     src2x () {
       return this.img2x && this.$withBase(`/images/${this.img2x}`)
-    }
+    },
 
     srcset () {
       return this.img2x ? `${this.src} 1x, ${this.src2x} 2x` : ''
