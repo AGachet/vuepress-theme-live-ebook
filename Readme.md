@@ -26,6 +26,7 @@ module.exports = {
   description: 'Live E-Book with useful informations about Design Process',
   theme: 'live-ebook', // Important! This is the name of this theme
   themeConfig: {
+    baseUrl: 'https://design-process.netguru.co', // Used for sharing in social media
     exitUrl: 'https://www.netguru.co/design-process',
     company: {
       name: 'Netguru',

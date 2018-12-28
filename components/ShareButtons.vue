@@ -26,10 +26,19 @@ export default {
       return this.$site.themeConfig.twitter
     },
 
+    baseUrl () {
+      return this.$site.themeConfig.baseUrl
+    },
+
+    url () {
+      return `${this.baseUrl}${this.$page.path}`
+    },
+
     twitterHref () {
       return this.twitter && 'https://twitter.com/intent/tweet?' +
         `text=${this.$page.title}&` +
-        `&url=${this.$page.path}` +
+        `&url=${this.url}` +
+        `&related=${this.twitter}` +
         `&via=${this.twitter}`
     },
   },
