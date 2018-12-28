@@ -22,8 +22,8 @@ export default {
   methods: {
     getHash (slug) {
       return `#${encodeURIComponent(slug)}`
-    }
-  }
+    },
+  },
 }
 </script>
 

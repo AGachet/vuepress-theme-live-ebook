@@ -31,16 +31,16 @@ export default {
   props: {
     chapter: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
-    sections() {
+    sections () {
       return this.chapter.headers && this.chapter.headers.filter(chapter => chapter.level === 2)
-    }
-  }
-};
+    },
+  },
+}
 </script>
 
 <style scoped lang="stylus">
