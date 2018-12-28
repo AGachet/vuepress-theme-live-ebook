@@ -6,7 +6,7 @@
       :title="$site.themeConfig.company.name"
       target="_blank"
     >
-      <img :src="$site.themeConfig.company.logo">
+      <img :src="$withBase($site.themeConfig.company.logo)">
     </a>
   </div>
 </template>
