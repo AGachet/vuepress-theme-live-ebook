@@ -33,6 +33,10 @@ export default {
       type: Object,
       required: true,
     },
+    activeSection: {
+      type: String,
+      default: null
+    }
   },
 
   computed: {
