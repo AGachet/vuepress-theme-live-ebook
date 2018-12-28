@@ -123,6 +123,13 @@ $root = '.chapter-navigation'
     font-weight $fw-bold
     color $c-black
 
+    @media (min-width: $screen-sm-min)
+      {$root}__block--left &
+        padding-left 4rem
+
+      {$root}__block--right &
+        padding-right 4rem
+
     @media (min-width: $screen-md-min)
       font-size $fs-6
 
