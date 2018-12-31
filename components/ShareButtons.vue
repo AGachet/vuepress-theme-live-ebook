@@ -36,7 +36,7 @@ export default {
 
     twitterHref () {
       return this.twitter && 'https://twitter.com/intent/tweet?' +
-        `text=${this.$site.title} - ${this.$page.title}&` +
+        `text=${this.$page.title} - ${this.$site.title}&` +
         `&url=${this.url}` +
         `&related=${this.twitter}` +
         `&via=${this.twitter}`
