@@ -9,7 +9,7 @@
     >
       <img
         :src="$withBase($site.themeConfig.company.logo)"
-        :alt="$site.themeConfig.comapny.name"
+        :alt="$site.themeConfig.company.name"
       >
     </a>
   </div>
