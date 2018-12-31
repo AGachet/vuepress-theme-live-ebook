@@ -35,8 +35,8 @@ export default {
     },
     activeSection: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
 
   computed: {

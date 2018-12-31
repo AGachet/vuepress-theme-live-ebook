@@ -28,7 +28,7 @@
             <ChapterMobileSections
               v-if="chapter.frontmatter.chapter_number === $page.frontmatter.chapter_number"
               :chapter="chapter"
-              :activeSection="activeSection"
+              :active-section="activeSection"
               @sectionChange="handleSectionChange"
             />
             <RouterLink
