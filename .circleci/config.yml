@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  checkout_code:
+    docker:
+      - image: node:10
+    working_directory: ~/live-ebook
+    steps:
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/live-ebook
+
+  npm_install:
+    docker:
+      - image: node:10
+    working_directory: ~/live-ebook
+    steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: v1-npm-lock-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: v1-npm-lock-{{ checksum "package.json" }}
+          paths:
+            - ~/live-ebook/node_modules
+
+  lint:
+    docker:
+      - image: node:10
+    working_directory: ~/live-ebook
+    steps:
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: v1-npm-lock-{{ checksum "package.json" }}
+      - run:
+          name: Lint files
+          command: npm run lint:ci
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - checkout_code
+      - npm_install:
+          requires:
+            - checkout_code
+      - lint:
+          requires:
+            - npm_install

@@ -18,7 +18,8 @@
   },
   "main": "Layout.vue",
   "scripts": {
-    "lint": "eslint --fix --ext .js,.vue ."
+    "lint": "eslint --fix --ext .js,.vue .",
+    "lint:ci": "eslint --ext .js,.vue ."
   },
   "dependencies": {
     "markdown-it": "^8.4.2",
