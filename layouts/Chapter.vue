@@ -64,14 +64,14 @@ export default {
     } else {
       const baseUrl = this.$site.themeConfig.baseUrl
 
-      this.$ssrContext.userHeadTags += `<link rel="canonical" href="${baseUrl}${this.$page.path}"/>`;
+      this.$ssrContext.userHeadTags += `<link rel="canonical" href="${baseUrl}${this.$page.path}"/>`
 
       if (this.nextPage) {
-        this.$ssrContext.userHeadTags += `<link rel="next" href="${baseUrl}${this.nextPage.path}"/>`;
+        this.$ssrContext.userHeadTags += `<link rel="next" href="${baseUrl}${this.nextPage.path}"/>`
       }
 
       if (this.prevPage) {
-        this.$ssrContext.userHeadTags += `<link rel="prev" href="${baseUrl}${this.prevPage.path}"/>`;
+        this.$ssrContext.userHeadTags += `<link rel="prev" href="${baseUrl}${this.prevPage.path}"/>`
       }
     }
   },
