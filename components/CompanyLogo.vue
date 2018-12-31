@@ -7,7 +7,10 @@
       target="_blank"
       rel="noopener"
     >
-      <img :src="$withBase($site.themeConfig.company.logo)">
+      <img
+        :src="$withBase($site.themeConfig.company.logo)"
+        :alt="$site.themeConfig.comapny.name"
+      >
     </a>
   </div>
 </template>
