@@ -5,6 +5,7 @@
       :href="$site.themeConfig.company.url"
       :title="$site.themeConfig.company.name"
       target="_blank"
+      rel="noopener"
     >
       <img :src="$withBase($site.themeConfig.company.logo)">
     </a>

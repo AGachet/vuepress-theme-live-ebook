@@ -5,6 +5,7 @@
       :href="twitterHref"
       rel="nofollow"
       target="_blank"
+      rel="noopener"
       title="Share on Twitter"
       class="share-buttons__icon"
     >
