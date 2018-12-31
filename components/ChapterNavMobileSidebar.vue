@@ -11,6 +11,7 @@
     <div class="sidebar">
       <button
         class="close-nav"
+        aria-label="Close navigation"
         @click="$emit('close')"
       />
 

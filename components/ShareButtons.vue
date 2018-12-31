@@ -3,9 +3,8 @@
     <a
       v-if="twitter"
       :href="twitterHref"
-      rel="nofollow"
       target="_blank"
-      rel="noopener"
+      rel="noreferrer"
       title="Share on Twitter"
       class="share-buttons__icon"
     >
