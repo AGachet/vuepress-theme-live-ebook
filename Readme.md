@@ -1,6 +1,6 @@
 # vuepress-theme-live-ebook
 
-This repository contains theme for [Vuepress](https://vuepress.vuejs.org), made specifically for creating live ebooks, like this one with ease: [https://design-process.netguru.co/chapters/01-project-introduction-and-setup.html](https://design-process.netguru.co)
+This repository contains theme for [Vuepress](https://vuepress.vuejs.org), made specifically for creating live ebooks, like this one with ease: [https://netguru.github.io/design-process/](https://netguru.github.io/design-process/)
 
 > It's compatible with `vuepress 0.x`.
 
