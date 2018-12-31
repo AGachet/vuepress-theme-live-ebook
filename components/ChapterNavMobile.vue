@@ -4,6 +4,7 @@
       <button
         class="header__burger"
         @click="isOpen = !isOpen"
+        :aria-label="isOpen ? 'Close navigation' : 'Open navigation'"
       />
       <div class="header__title">
         <span>

@@ -1,6 +1,7 @@
 <template>
   <div class="arrows">
     <RouterLink
+      aria-label="Previous chapter"
       :to="{ path: prevUrl }"
       class="arrow"
       :class="{
@@ -10,6 +11,7 @@
       <ArrowLeft />
     </RouterLink>
     <RouterLink
+      aria-label="Next chapter"
       :to="{ path: nextUrl }"
       class="arrow"
       :class="{
