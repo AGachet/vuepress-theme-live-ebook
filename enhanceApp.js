@@ -23,7 +23,11 @@ const dataMixin = {
   computed: {
     $chapters () {
       return this.$site.pages && this.$site.pages.filter(page =>
-        page.frontmatter.layout === 'chapter'
+        page.frontmatter.layout === 'chapter' &&
+        (
+          typeof page.frontmatter.published === 'undefined' ||
+          page.frontmatter.published
+        )
       )
     },
   },
