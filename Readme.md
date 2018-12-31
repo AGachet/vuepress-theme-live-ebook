@@ -22,11 +22,12 @@ yarn add vue-svg-loader
 ```js
 // .vuepress/config.js
 module.exports = {
-  title: 'Design Process For Pros',
+  title: 'Design Process by Netguru', // Page title
   description: 'Live E-Book with useful informations about Design Process',
   theme: 'live-ebook', // Important! This is the name of this theme
   themeConfig: {
-    baseUrl: 'https://design-process.netguru.co', // Used for sharing in social media
+    bookTitle: 'Design Process for pros', // Book title
+    baseUrl: 'https://design-process.netguru.co', // Used for sharing in social media and for meta tags
     exitUrl: 'https://www.netguru.co/design-process',
     company: {
       name: 'Netguru',
