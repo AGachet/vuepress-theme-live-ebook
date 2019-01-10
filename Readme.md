@@ -25,6 +25,12 @@ module.exports = {
   title: 'Design Process by Netguru', // Page title
   description: 'Live E-Book with useful informations about Design Process',
   theme: 'live-ebook', // Important! This is the name of this theme
+  base: '/', // Base URL, leave as is if you don't serve the book from a folder
+  head: [
+    ['link', { rel: 'icon', href: '/images/favicon.ico' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+  ],
+  ga: 'UA-259047-66', // Google Analytics ID
   themeConfig: {
     bookTitle: 'Design Process for pros', // Book title
     baseUrl: 'https://design-process.netguru.co', // Used for sharing in social media and for meta tags
@@ -86,6 +92,7 @@ Each chapter file has to start with the following [Front Matter](https://vuepres
 layout: chapter
 title: "Example title of Chapter 2"
 chapter_number: "02"
+description: In this chapter you will ...
 ---
 
 # Example title of Chapter 2
@@ -93,11 +100,12 @@ chapter_number: "02"
 Chapter content goes here.
 ```
 
-- All fields: `layout`, `title` and `chapter_number` are required.
+- Fields: `layout`, `title` and `chapter_number` are required.
+- `description` field is optional, if present - it will be places in proper meta tags on the page. Defaults to the description from `.vuepress/config.js`
 - Make sure that `title` in front matter corresponds to the primary heading - as in the above example.
 - Use only one H1 heading (`# ...`).
 
-See [example chapter](https://raw.githubusercontent.com/netguru/design-process/vuepress/chapters/01-project-introduction-and-setup.md) for reference.
+See [example chapter](https://raw.githubusercontent.com/netguru/design-process/master/chapters/01-project-introduction-and-setup.md) for reference.
 
 ## Available components
 
