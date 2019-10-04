@@ -3,6 +3,8 @@ import BaseImage from '@theme/global-components/BaseImage.vue'
 import BaseQA from '@theme/global-components/BaseQA.vue'
 import BaseQuote from '@theme/global-components/BaseQuote.vue'
 import BaseComparison from '@theme/global-components/BaseComparison.vue'
+import BaseLandingIntro from '@theme/global-components/BaseLandingIntro.vue'
+import BaseLandingChapters from '@theme/global-components/BaseLandingChapters.vue'
 import md from 'markdown-it'
 
 const markdown = md({
@@ -13,11 +15,12 @@ const markdown = md({
 
 const dataMixin = {
   beforeRouteEnter (to, from, next) {
-    if (to.path === '/') {
-      next(vm => next({ path: vm.$chapters[0].path }))
-    }
-
-    next()
+    next(vm => {
+      if (vm.$site.themeConfig.redirectToFirstSection && to.path === '/') {
+        return next({ path: vm.$chapters[0].path })
+      }
+      return next()
+    })
   },
 
   computed: {
@@ -42,6 +45,8 @@ export default ({ Vue, options }) => {
   Vue.component('BaseQA', BaseQA)
   Vue.component('BaseQuote', BaseQuote)
   Vue.component('BaseComparison', BaseComparison)
+  Vue.component('BaseLandingIntro', BaseLandingIntro)
+  Vue.component('BaseLandingChapters', BaseLandingChapters)
 
   Vue.filter('markdown', (value) => {
     return markdown.render(value)

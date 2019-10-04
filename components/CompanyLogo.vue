@@ -21,6 +21,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.company-logo-container
-  padding 2rem 0
+  .company-logo-container
+    padding 2rem 0
 </style>
