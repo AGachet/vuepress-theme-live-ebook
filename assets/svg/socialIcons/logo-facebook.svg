@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 12 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LP-DESKTOP-v1" transform="translate(-876.000000, -2306.000000)" fill="currentColor" fill-rule="nonzero">
+            <g id="footer" transform="translate(0.000000, 2254.000000)">
+                <g id="social" transform="translate(876.000000, 51.000000)">
+                    <g id="logo-fb-simple" transform="translate(0.000000, 1.000000)">
+                        <path d="M3.29852455,18 L3.27272727,9.81818182 L0,9.81818182 L0,6.54545455 L3.27272727,6.54545455 L3.27272727,4.5 C3.27272727,1.4634 5.15317091,0 7.86202364,0 C9.15959455,0 10.2747845,0.0966027273 10.5997827,0.139786364 L10.5997827,3.31321091 L8.72104909,3.31406182 C7.24782273,3.31406182 6.96257182,4.01411455 6.96257182,5.04139909 L6.96257182,6.54545455 L11.25,6.54545455 L9.61363636,9.81818182 L6.96257182,9.81818182 L6.96257182,18 L3.29852455,18 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

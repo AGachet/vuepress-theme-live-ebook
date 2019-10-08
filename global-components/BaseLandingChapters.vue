@@ -2,19 +2,19 @@
   <section class="landing-chapters">
     <div class="landing-chapters-container">
       <div class="landing-chapters__col landing-chapters__col--intro">
-        <span
-          class="subtitle"
-        >
-          {{ subtitle }}
-        </span>
-        <h1 class="title">
-          {{ title }}
-        </h1>
-        <p
+        <SectionIntro
           class="intro"
-        >
-          {{ intro }}
-        </p>
+          :title="title"
+          :subtitle="subtitle"
+          :intro="intro"
+        />
+        <div class="landing-chapters__image-wrapper">
+          <BaseImage
+            class="landing-chapters__image"
+            :img="img"
+            :alt="imgAlt"
+          />
+        </div>
       </div>
       <div class="landing-chapters__col landing-chapters__col--chapters">
         <ChaptersBlocks :chapters="chapters" />
@@ -24,10 +24,15 @@
 </template>
 
 <script>
+import BaseImage from '@theme/global-components/BaseImage'
 import ChaptersBlocks from '@theme/components/ChaptersBlocks'
+import SectionIntro from '@theme/components/SectionIntro'
+
 export default {
   components: {
+    BaseImage,
     ChaptersBlocks,
+    SectionIntro,
   },
   props: {
     title: {
@@ -43,6 +48,14 @@ export default {
     intro: {
       type: String,
       required: false,
+      default: '',
+    },
+    img: {
+      type: String,
+      required: true,
+    },
+    imgAlt: {
+      type: String,
       default: '',
     },
   },
@@ -62,28 +75,20 @@ export default {
   padding 180px 0 140px
   background: $c-white
 
+  &__image-wrapper
+    position relative
+    width calc(100% - 65px)
+    left -15px
+
+  &__image
+    margin 50px 0 0
+
 .landing-chapters-container
   display flex
   @extend $landing-container
 
-  .title
-    margin 0
-    font-size $fs-7
-    text-align left
-    line-height 1.16
-
-  .subtitle
-    display inline-block
-    font-size 10px
-    font-weight $fw-bold
-    margin-bottom 30px
-    line-height 1
-
-  .intro
-    max-width 166px
-    margin 36px 0 0 0
-    font-size $fs-2
-    line-height 1.5
+.intro
+  max-width 166px
 
 .landing-chapters__col
   &--intro
@@ -91,5 +96,7 @@ export default {
 
   &--chapters
     flex 3
+    position relative
+    z-index 20
 
 </style>

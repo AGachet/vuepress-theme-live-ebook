@@ -3,8 +3,8 @@
     <header class="header">
       <button
         class="header__burger"
-        @click="isOpen = !isOpen"
         :aria-label="isOpen ? 'Close navigation' : 'Open navigation'"
+        @click="isOpen = !isOpen"
       />
       <div class="header__title">
         <span>

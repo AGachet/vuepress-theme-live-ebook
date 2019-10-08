@@ -22,5 +22,6 @@ export default {
 
 <style scoped lang="stylus">
   .company-logo-container
+    width 100%
     padding 2rem 0
 </style>

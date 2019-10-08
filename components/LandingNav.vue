@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav class="nav">
-      <CompanyLogo />
+      <CompanyLogo class="nav__logo" />
       <div>
         <ContactButton />
         <ReadButton class="nav__read-btn" />
@@ -25,13 +25,19 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-$root = '.nav'
+.nav
+  display flex
+  justify-content space-between
+  align-items center
+  max-width 1500px
+  margin 0 auto
+  padding 30px 0
 
-  {$root}
-    display flex
-    justify-content space-between
-    align-items center
+  &__read-btn
+    margin-left 30px
 
-    &__read-btn
-      margin-left 30px
+.nav__logo
+  width 118px
+  padding 0
+
 </style>

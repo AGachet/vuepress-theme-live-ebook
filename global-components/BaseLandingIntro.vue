@@ -21,26 +21,35 @@
           <ReadButton class="read-btn" />
         </div>
         <div
-          class="landing-intro__text-block"
           v-if="tag"
+          class="landing-intro__text-block"
         >
           <span class="tag">
             {{ tag }}
           </span>
         </div>
       </div>
-      <!-- <div class="landing-intro__col landing-intro__col--image">
-        <slot />
-      </div> -->
+      <div class="landing-intro__col landing-intro__col--image">
+        <div class="landing-intro__image-wrapper">
+          <BaseImage
+            class="landing-intro__image"
+            :img="imgDesktop.img"
+            :img2x="imgDesktop.img2x"
+            :alt="imgDesktop.imgAlt"
+          />
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import BaseImage from '@theme/global-components/BaseImage'
 import ReadButton from '@theme/components/ReadButton'
 
 export default {
   components: {
+    BaseImage,
     ReadButton,
   },
 
@@ -64,6 +73,23 @@ export default {
       required: false,
       default: '',
     },
+    imgDesktop: {
+      type: Object,
+      required: true,
+      default: () => {},
+    },
+    // img: {
+    //   type: String,
+    //   required: true,
+    // },
+    // img2x: {
+    //   type: String,
+    //   default: null,
+    // },
+    // imgAlt: {
+    //   type: String,
+    //   default: '',
+    // },
   },
 }
 </script>
@@ -72,7 +98,7 @@ export default {
 @require '~@theme/styles/shared'
 
 .landing-intro-container
-  padding: 46px 0 30px
+  padding: 70px 0 30px
 
 .landing-intro
   @extends $landing-container
@@ -87,30 +113,44 @@ export default {
     justify-content space-between
     align-items flex-start
 
-  &__col--text
-    padding-right 120px
+    &--text
+      padding-right 120px
 
-  .title
+    &--image
+      position relative
+
+  &__image-wrapper
+    position absolute
+    top -82px
+    left -40px
+    width 125%
+
+  &__image
     margin 0
-    font-size $fs-7
-    text-align left
-    line-height 1.16
 
-  .subtitle
-    display inline-block
-    font-size 10px
-    font-weight $fw-bold
-    margin-bottom 30px
-    line-height 1
+.title
+  margin 0
+  font-size $fs-7
+  text-align left
+  line-height 1.16
 
-  .intro
-    margin 26px 140px 0 0
-    font-size $fs-2
-    line-height 1.5
+.subtitle
+  display inline-block
+  color $c-landing-gray
+  font-size 10px
+  font-weight $fw-bold
+  margin-bottom 30px
+  line-height 1
 
-  .tag
-    font-size $fs-0
+.intro
+  margin 26px 120px 0 0
+  font-size $fs-2
+  line-height 1.5
 
-  .read-btn
-    margin 5.3rem 0 5.5rem
+.tag
+  font-size $fs-0
+
+.read-btn
+  margin 95px 0 110px
+
 </style>

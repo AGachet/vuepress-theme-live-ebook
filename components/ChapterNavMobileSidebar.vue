@@ -18,12 +18,12 @@
       <div class="sidebar-content">
         <ul>
           <li
+            v-for="chapter in $chapters"
+            :key="chapter.frontmatter.chapter_number"
             class="toc-h1"
             :class="{
               isActive: chapter.frontmatter.chapter_number === $page.frontmatter.chapter_number
             }"
-            v-for="chapter in $chapters"
-            :key="chapter.frontmatter.chapter_number"
           >
             <ChapterMobileSections
               v-if="chapter.frontmatter.chapter_number === $page.frontmatter.chapter_number"

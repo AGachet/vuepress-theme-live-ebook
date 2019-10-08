@@ -4,12 +4,17 @@
     :to="{ path: $chapters[0].path }"
     class="read-button"
   >
-    Read
+    <BookIcon class="read-button__icon" /> Read
   </RouterLink>
 </template>
 
 <script>
+import BookIcon from '@theme/assets/svg/book.svg'
+
 export default {
+  components: {
+    BookIcon,
+  },
 }
 </script>
 
@@ -17,8 +22,9 @@ export default {
 @require '~@theme/styles/shared'
 
 .read-button
-  display inline-block
-  padding: 14px 40px
+  display inline-flex
+  align-items center
+  padding: 15px 35px
   border-radius 100px
   background $c-primary
   box-shadow 0 8px 20px 0 lighten($c-primary, 30%)
@@ -30,8 +36,10 @@ export default {
   text-transform uppercase
   transition background ease .2s
 
-  &.read-button
-    color $c-white
+  &__icon
+    display inline-block
+    width 14px
+    margin-right 20px
 
   &:hover
     background lighten($c-primary, 5%)

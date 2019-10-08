@@ -1,8 +1,8 @@
 <template>
   <ul class="chapter-sections">
     <slot
-      name="section"
       v-for="section in sections"
+      name="section"
       :slug="section.slug"
       :title="section.title"
       :hash="getHash(section.slug)"

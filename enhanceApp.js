@@ -5,6 +5,7 @@ import BaseQuote from '@theme/global-components/BaseQuote.vue'
 import BaseComparison from '@theme/global-components/BaseComparison.vue'
 import BaseLandingIntro from '@theme/global-components/BaseLandingIntro.vue'
 import BaseLandingChapters from '@theme/global-components/BaseLandingChapters.vue'
+import BaseRecommendations from '@theme/global-components/BaseRecommendations.vue'
 import md from 'markdown-it'
 
 const markdown = md({
@@ -47,6 +48,7 @@ export default ({ Vue, options }) => {
   Vue.component('BaseComparison', BaseComparison)
   Vue.component('BaseLandingIntro', BaseLandingIntro)
   Vue.component('BaseLandingChapters', BaseLandingChapters)
+  Vue.component('BaseRecommendations', BaseRecommendations)
 
   Vue.filter('markdown', (value) => {
     return markdown.render(value)

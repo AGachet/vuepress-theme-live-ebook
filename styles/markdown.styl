@@ -1,11 +1,4 @@
 .content.custom
-  margin-top $base-sizing
-
-  p
-    margin $base-small-sizing 0
-    font-size $fs-text-base
-    line-height $base-sizing
-
   h1,
   h2,
   h3,
@@ -16,6 +9,19 @@
     // Styles related to "fixAnchorsOffset"
     .fake-header-anchor
       display none
+
+.landing__content {
+  overflow-x hidden
+}
+
+.content.custom:not(.landing__content)
+  margin-top $base-sizing
+
+  p
+    margin $base-small-sizing 0
+    font-size $fs-text-base
+    line-height $base-sizing
+
 
   h1
     margin-top ($base-sizing * 2)

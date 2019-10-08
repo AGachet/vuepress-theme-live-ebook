@@ -4,8 +4,8 @@
     :class="{ isActive }"
   >
     <button
-      class="chapter-section__btn"
       v-scroll-to="hash"
+      class="chapter-section__btn"
     >
       {{ title }}
     </button>
