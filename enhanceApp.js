@@ -3,9 +3,9 @@ import BaseImage from '@theme/global-components/BaseImage.vue'
 import BaseQA from '@theme/global-components/BaseQA.vue'
 import BaseQuote from '@theme/global-components/BaseQuote.vue'
 import BaseComparison from '@theme/global-components/BaseComparison.vue'
-import BaseLandingIntro from '@theme/global-components/BaseLandingIntro.vue'
-import BaseLandingChapters from '@theme/global-components/BaseLandingChapters.vue'
-import BaseRecommendations from '@theme/global-components/BaseRecommendations.vue'
+import LandingHeader from '@theme/global-components/LandingHeader.vue'
+import LandingChapters from '@theme/global-components/LandingChapters.vue'
+import LandingRecommendations from '@theme/global-components/LandingRecommendations.vue'
 import md from 'markdown-it'
 
 const markdown = md({
@@ -46,9 +46,9 @@ export default ({ Vue, options }) => {
   Vue.component('BaseQA', BaseQA)
   Vue.component('BaseQuote', BaseQuote)
   Vue.component('BaseComparison', BaseComparison)
-  Vue.component('BaseLandingIntro', BaseLandingIntro)
-  Vue.component('BaseLandingChapters', BaseLandingChapters)
-  Vue.component('BaseRecommendations', BaseRecommendations)
+  Vue.component('LandingHeader', LandingHeader)
+  Vue.component('LandingChapters', LandingChapters)
+  Vue.component('LandingRecommendations', LandingRecommendations)
 
   Vue.filter('markdown', (value) => {
     return markdown.render(value)

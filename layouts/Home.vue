@@ -1,6 +1,6 @@
 <template>
   <div class="landing">
-    <LandingNav
+    <LandingNavbar
       class="landing__nav"
       :class="{'landing__nav--scrolled': isScrolled}"
     />
@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import LandingNav from '@theme/components/LandingNav'
+import LandingNavbar from '@theme/components/LandingNavbar'
 import LandingFooter from '@theme/components/LandingFooter'
 
 export default {
 
   components: {
-    LandingNav,
+    LandingNavbar,
     LandingFooter,
   },
 

@@ -2,7 +2,7 @@
   <div>
     <Carousel
       v-if="isMobile"
-      class="recommendations__carousel"
+      class="recommendations-carousel"
       :slides-btn-count="recommendations.length"
     >
       <RecomendationBlock
@@ -14,7 +14,7 @@
     </Carousel>
     <div
       v-else
-      class="recommendations__items"
+      class="recommendations-items"
     >
       <RecomendationBlock
         v-for="recommendation in recommendations"
@@ -57,6 +57,7 @@ export default {
   },
 
   mounted () {
+    this.getWindowInnerWidth()
     window.addEventListener('resize', this.getWindowInnerWidth)
   },
 
@@ -75,11 +76,11 @@ export default {
 <style scoped lang="stylus">
 @require '~@theme/styles/shared'
 
-.recommendations__items
+.recommendations-items
     display flex
     justify-content space-between
 
-.recommendations__carousel
+.recommendations-carousel
   max-width 352px
   margin 0 auto
 

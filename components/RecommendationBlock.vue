@@ -1,21 +1,21 @@
 <template>
   <div class="recommendation-item">
     <div class="recommendation-item__content">
-      <div class="recommendation-item__avatar">
+      <div class="avatar">
         <BaseImage
-          class="recommendation-item__photo"
+          class="avatar__photo"
           :img="recommendation.photo"
         />
-        <QuatationMark class="recommendation-item__quatation-mark" />
+        <QuatationMark class="avatar__quatation-mark" />
       </div>
-      <span class="recommendation-item__name">
+      <span class="name">
         {{ recommendation.name }}
       </span>
-      <h3 class="recommendation-item__quote">
+      <h3 class="quote">
         {{ recommendation.recommendation }}
       </h3>
     </div>
-    <div class="recommendation-item__footer">
+    <div class="footer">
       {{ recommendation.position }}
     </div>
   </div>
@@ -57,13 +57,17 @@ export default {
     @media (min-width: $screen-md-min)
       height auto
 
-  &__avatar
-    position relative
-    width 80px
-    height 80px
-    margin 0 auto 16px
-    overflow hidden
-    color $c-primary
+.avatar
+  position relative
+  width 80px
+  height 80px
+  margin 0 auto 16px
+  overflow hidden
+  color $c-primary
+
+  &__photo
+    margin 0
+    border-radius 50%
 
   &__quatation-mark
     position absolute
@@ -72,47 +76,43 @@ export default {
     width 28px
     height 28px
 
-  &__photo
-    margin 0
-    border-radius 50%
+.name
+  color $c-landing-gray
+  font-size 10px
+  font-weight $fw-bold
+  letter-spacing 0.2em
+  line-height 1.3
+  text-transform uppercase
 
-  &__name
-    color $c-landing-gray
-    font-size 10px
-    font-weight $fw-bold
-    letter-spacing 0.2em
-    line-height 1.3
-    text-transform uppercase
+.quote
+  margin 20px 0 10px
+  color $c-landing-text
+  font-size $fs-4
+  font-weight $fw-semibold
+  line-height 1.3
 
-  &__quote
-    margin 20px 0 10px
-    color $c-landing-text
-    font-size $fs-4
-    font-weight $fw-semibold
-    line-height 1.3
+.footer
+  position relative
+  display flex
+  flex-direction column
+  justify-content center
+  height 94px
+  padding 10px 30px
+  border-top 1px solid $c-footer-border
+  color lighten($c-landing-gray, 35%)
+  font-size $fs-1
+  font-weight $fw-semibold
+  line-height 1.2
 
-  &__footer
-    position relative
-    display flex
-    flex-direction column
-    justify-content center
-    height 94px
-    padding 10px 30px
-    border-top 1px solid #F6F6F3
-    color #B5B5B5
-    font-size $fs-1
-    font-weight $fw-semibold
-    line-height 1.2
-
-    &::before
-      content ''
-      position absolute
-      top -1px
-      right 0
-      left 0
-      width 60px
-      height 2px
-      margin auto
-      background $c-primary
+  &::before
+    content ''
+    position absolute
+    top -1px
+    right 0
+    left 0
+    width 60px
+    height 2px
+    margin auto
+    background $c-primary
 
 </style>

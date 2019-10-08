@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@require '~@theme/styles/shared'
+
 .company-logo-container
   width 100%
 </style>

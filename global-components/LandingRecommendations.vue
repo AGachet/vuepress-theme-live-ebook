@@ -6,7 +6,7 @@
         class="recommendations__image-holder recommendations__image-holder--top"
       >
         <BaseImage
-          class="recommendations__image"
+          class="image"
           :img="topImage.img"
           :alt="topImage.alt"
         />
@@ -28,7 +28,7 @@
       class="recommendations__image-holder recommendations__image-holder--bottom"
     >
       <BaseImage
-        class="recommendations__image"
+        class="image"
         :img="bottomImage.img"
         :alt="bottomImage.alt"
       />
@@ -122,13 +122,13 @@ export default {
       width 350px
       z-index 20
 
-  &__image
-    display none
-    width 100%
-    margin 0
+.image
+  display none
+  width 100%
+  margin 0
 
-    @media (min-width: $screen-sm-min)
-      display block
+  @media (min-width: $screen-sm-min)
+    display block
 
 .recommendations-container
   @extend $landing-container
