@@ -28,11 +28,15 @@ export default {
   },
 
   created () {
-    window.addEventListener('scroll', this.handleScroll)
+    if (!this.$ssrContext) {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   },
 
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll)
+    if (!this.$ssrContext) {
+      window.removeEventListener('scroll', this.handleScroll)
+    }
   },
 
   methods: {

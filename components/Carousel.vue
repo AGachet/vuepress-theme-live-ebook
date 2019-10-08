@@ -35,33 +35,40 @@ export default {
       currentSlide: 0,
       defaultSettings: {
         selector: '.js-trigger-carousel',
-        duration: 200,
-        easing: 'ease-out',
+        duration: 300,
+        easing: 'ease',
         loop: true,
+        onInit: this.getCurrentSlideIndex,
+        onChange: this.getCurrentSlideIndex,
       },
     }
   },
 
   mounted () {
-    this.init()
+    this.initCarousel()
   },
 
   beforeDestroy () {
-    this.destroy()
+    this.destroyCarousel()
   },
 
   methods: {
-    init () {
+    initCarousel () {
       this.carousel = new Siema(this.defaultSettings)
     },
-    destroy () {
-      this.carousel.destroy(true)
+    destroyCarousel () {
+      const restoreOriginalMarkup = true
+      this.carousel.destroy(restoreOriginalMarkup)
     },
     goToSlide (index) {
       this.carousel.goTo(index, () => this.markCurrentSlide(index))
     },
     markCurrentSlide (index) {
       this.currentSlide = index
+    },
+    getCurrentSlideIndex () {
+      const currentSlide = this.carousel ? this.carousel.currentSlide : 0
+      this.markCurrentSlide(currentSlide)
     },
   },
 }

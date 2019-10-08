@@ -58,11 +58,15 @@ export default {
 
   mounted () {
     this.getWindowInnerWidth()
-    window.addEventListener('resize', this.getWindowInnerWidth)
+    if (!this.$ssrContext) {
+      window.addEventListener('resize', this.getWindowInnerWidth)
+    }
   },
 
   beforeDestroy () {
-    window.removeEventListener('resize', this.getWindowInnerWidth)
+    if (!this.$ssrContext) {
+      window.removeEventListener('resize', this.getWindowInnerWidth)
+    }
   },
 
   methods: {
