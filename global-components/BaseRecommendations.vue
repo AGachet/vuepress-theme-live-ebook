@@ -89,7 +89,10 @@ export default {
 
 .recommendations
   position relative
-  padding 108px 0 118px
+  padding 80px 0 70px
+
+  @media (min-width: $screen-md-min)
+    padding 108px 0 118px
 
   &::after
     content ''
@@ -120,8 +123,12 @@ export default {
       z-index 20
 
   &__image
+    display none
     width 100%
     margin 0
+
+    @media (min-width: $screen-sm-min)
+      display block
 
 .recommendations-container
   @extend $landing-container
@@ -131,4 +138,8 @@ export default {
 .intro
   max-width 360px
   margin 0 auto 75px
+  text-align center
+
+  @media (min-width: $screen-md-min)
+    text-align left
 </style>

@@ -53,16 +53,18 @@ export default {
 .section-intro
   display flex
   flex-direction column
+  align-items center
 
-  &--left
-    align-items flex-start
+  @media (min-width: $screen-md-min)
+    &--left
+      align-items flex-start
 
-  &--center
-    align-items center
-    text-align center
+    &--center
+      align-items center
+      text-align center
 
-  &--right
-    align-items flex-end
+    &--right
+      align-items flex-end
 
   &__title
     margin 0
@@ -81,7 +83,11 @@ export default {
 
   &__text
     margin 36px 0 0 0
+    padding: 0 22px
     font-size $fs-2
     line-height 1.5
+
+    @media (min-width: $screen-md-min)
+      padding 0
 
 </style>

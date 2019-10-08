@@ -62,7 +62,12 @@ export default {
 
 .chapters-container
   display flex
-  flex-wrap: wrap
+  flex-direction column
+  padding 0 36px
+
+  @media (min-width: $screen-md-min)
+    flex-direction row
+    padding 0
 
 .chapter,
 .section
@@ -73,10 +78,14 @@ export default {
 
 .chapter
   flex 1
-  margin-left 30px
+  margin-bottom 48px
 
-  &:first-of-type
-    margin-left 0
+  @media (min-width: $screen-md-min)
+    margin-bottom 0
+    margin-left 30px
+
+    &:first-of-type
+      margin-left 0
 
   &__content
     display flex

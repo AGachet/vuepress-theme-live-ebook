@@ -50,24 +50,26 @@ export default {
 
 .social-icon
   display inline-block
-  // padding 10px
   height 20px
   margin 0 15px
   color $c-footer-socials
   transition color ease .2s
 
+  &:first-child
+    margin-left 0
+
+    @media (min-width: $screen-md-min)
+      margin-left 15px
+
   &:hover
     color darken($c-footer-socials, 30%)
-  // svg
-  //   padding 0
 
 .social-icon__logo
   height 18px
 
   &--behance
     height 12px
-//     &--facebook
-//     &--dribbble
+
   &--twitter
     height 17px
 

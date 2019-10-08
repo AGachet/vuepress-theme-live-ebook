@@ -37,26 +37,41 @@ export default {
 <style scoped lang="stylus">
   @require '~@theme/styles/shared'
   .footer-container
-    padding 42px 0 58px
+    padding 45px 0
     border-top 1px solid $c-footer-border
 
+    @media (min-width: $screen-sm-min)
+      padding 42px 0 58px
+
   .footer
-    @extends $landing-container
+    padding 0 30px
     display flex
     flex-direction column
     margin 0 auto
 
+    @media (min-width: $screen-md-min)
+      @extends $landing-container
+
     &__copy
+      display none
       margin-top 40px
       color $c-landing-text
       font-size 10px
       line-height 1.2
       text-align center
 
+      @media (min-width: $screen-md-min)
+        display block
+
   .nav
     display flex
-    justify-content space-between
-    align-items center
+    flex-direction column
+    align-items flex-start
+
+    @media (min-width: $screen-md-min)
+      flex-direction row
+      justify-content space-between
+      align-items center
 
     &__col
       flex 1
@@ -65,9 +80,17 @@ export default {
         display flex
         justify-content center
         align-items center
+        margin-top 24px
+
+        @media (min-width: $screen-md-min)
+          margin-top 0
 
       &--right
+        display none
         text-align right
+
+        @media (min-width: $screen-md-min)
+          display block
 
     &__read-btn
       margin-left 30px

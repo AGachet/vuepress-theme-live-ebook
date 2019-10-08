@@ -56,15 +56,18 @@ export default {
   background $c-landing-bg
 
   &__nav
-    position sticky
-    top 0
-    padding 0 20px
+    padding 0 30px
     background $c-landing-bg
     border-bottom 1px solid transparent
     z-index 40
-    transition background-color ease .3s
 
-    &--scrolled
-      background $c-white
-      border-color darken($c-landing-bg, 10%)
+    @media (min-width: $screen-sm-min)
+      position sticky
+      top 0
+      padding 0 20px
+      transition background-color ease .3s
+
+      &--scrolled
+        background $c-white
+        border-color darken($c-landing-bg, 10%)
 </style>
