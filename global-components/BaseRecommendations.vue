@@ -18,7 +18,7 @@
         align="center"
         class="intro"
       />
-      <RecommendationsBlocks
+      <RecommendationBlocks
         class="recommendations__blocks"
         :recommendations="recommendations"
       />
@@ -39,13 +39,13 @@
 <script>
 import BaseImage from '@theme/global-components/BaseImage.vue'
 import SectionIntro from '@theme/components/SectionIntro'
-import RecommendationsBlocks from '@theme/components/RecommendationsBlocks'
+import RecommendationBlocks from '@theme/components/RecommendationBlocks'
 
 export default {
   components: {
     BaseImage,
     SectionIntro,
-    RecommendationsBlocks,
+    RecommendationBlocks,
   },
   props: {
     title: {
@@ -89,20 +89,20 @@ export default {
 
 .recommendations
   position relative
-  padding 80px 0 70px
+  padding 80px 0 60px
 
   @media (min-width: $screen-md-min)
     padding 108px 0 118px
 
-  &::after
-    content ''
-    position absolute
-    right 0
-    bottom 0
-    left 0
-    height 210px
-    background $c-white
-    z-index 10
+    &::after
+      content ''
+      position absolute
+      right 0
+      bottom 0
+      left 0
+      height 210px
+      background $c-white
+      z-index 10
 
   &__blocks
     z-index 30
@@ -139,7 +139,4 @@ export default {
   max-width 360px
   margin 0 auto 75px
   text-align center
-
-  @media (min-width: $screen-md-min)
-    text-align left
 </style>

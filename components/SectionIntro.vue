@@ -83,7 +83,8 @@ export default {
 
   &__text
     margin 36px 0 0 0
-    padding: 0 22px
+    padding 0 22px
+    color $c-landing-gray
     font-size $fs-2
     line-height 1.5
 

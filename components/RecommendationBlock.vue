@@ -50,11 +50,12 @@ export default {
   text-align center
   box-shadow 0 10px 20px 0 rgba(#74675B, .06)
 
-  // & + &
-  //   margin-left 30px
-
   &__content
+    height 346px
     padding 50px 30px 40px
+
+    @media (min-width: $screen-md-min)
+      height auto
 
   &__avatar
     position relative

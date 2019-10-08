@@ -1,8 +1,9 @@
 <template>
   <div>
-    <SliderTest
+    <Carousel
       v-if="isMobile"
-      class="recommendations__slider"
+      class="recommendations__carousel"
+      :slides-btn-count="recommendations.length"
     >
       <RecomendationBlock
         v-for="recommendation in recommendations"
@@ -10,7 +11,7 @@
         :recommendation="recommendation"
         class="recommendation-item recommendation-item--mobile"
       />
-    </SliderTest>
+    </Carousel>
     <div
       v-else
       class="recommendations__items"
@@ -28,11 +29,11 @@
 <script>
 
 import RecomendationBlock from './RecommendationBlock'
-import SliderTest from './SliderTest'
+import Carousel from './Carousel'
 
 export default {
   components: {
-    SliderTest,
+    Carousel,
     RecomendationBlock,
   },
 
@@ -78,7 +79,7 @@ export default {
     display flex
     justify-content space-between
 
-.recommendations__slider
+.recommendations__carousel
   max-width 352px
   margin 0 auto
 

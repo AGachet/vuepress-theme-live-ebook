@@ -203,6 +203,7 @@ export default {
 
 .intro
   margin 26px 0 0 0
+  color $c-landing-gray
   font-size $fs-2
   line-height 1.5
 
