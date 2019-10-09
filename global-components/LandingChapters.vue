@@ -8,8 +8,10 @@
           :subtitle="subtitle"
           :intro="intro"
         />
-        <div v-if="img"
-class="image-wrapper">
+        <div
+          v-if="img"
+          class="image-wrapper"
+        >
           <BaseImage
             class="image"
             :img="img"
