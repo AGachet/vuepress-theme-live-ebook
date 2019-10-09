@@ -8,7 +8,8 @@
           :subtitle="subtitle"
           :intro="intro"
         />
-        <div class="image-wrapper">
+        <div v-if="img"
+class="image-wrapper">
           <BaseImage
             class="image"
             :img="img"
@@ -55,7 +56,7 @@ export default {
     },
     img: {
       type: String,
-      required: true,
+      required: false,
     },
     imgAlt: {
       type: String,
