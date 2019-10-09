@@ -173,6 +173,7 @@ export default {
   &__company-logo
     position absolute
     bottom 0
+    max-width 106px
 
 .chapter-sections
   position absolute
