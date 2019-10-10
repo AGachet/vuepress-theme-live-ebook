@@ -45,12 +45,11 @@ module.exports = {
       copyRights: '© 2019 Copyrights by Netguru. All rights reserved.'
     },
     socials: {
-      facebook: 'https://www.facebook.com/netguru/',
-      twitter: 'https://twitter.com/netguru',
-      dribbble: 'https://dribbble.com/netguru',
-      behance: 'https://www.behance.net/netguru',
+      facebook: 'netguru',
+      twitter: 'netguru',
+      dribbble: 'netguru',
+      behance: 'netguru',
     },
-    twitter: 'netguru',
   },
 
   chainWebpack: (config) => {
