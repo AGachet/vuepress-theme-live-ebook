@@ -6,7 +6,7 @@
           class="avatar__photo"
           :img="recommendation.photo"
         />
-        <QuatationMark class="avatar__quatation-mark" />
+        <QuotationMark class="avatar__quotation-mark" />
       </div>
       <span class="name">
         {{ recommendation.name }}
@@ -23,12 +23,12 @@
 
 <script>
 import BaseImage from '@theme/global-components/BaseImage.vue'
-import QuatationMark from '@theme/assets/svg/quotation_mark.svg'
+import QuotationMark from '@theme/assets/svg/quotation_mark.svg'
 
 export default {
   components: {
     BaseImage,
-    QuatationMark,
+    QuotationMark,
   },
   props: {
     recommendation: {
@@ -69,7 +69,7 @@ export default {
     margin 0
     border-radius 50%
 
-  &__quatation-mark
+  &__quotation-mark
     position absolute
     right 0
     bottom 0

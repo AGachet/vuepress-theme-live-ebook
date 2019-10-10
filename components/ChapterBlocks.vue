@@ -92,6 +92,7 @@ export default {
     flex-direction column
     height 100%
     padding: 38px 30px 58px 30px
+    background $c-white
     border-radius: 4px
     color: $c-landing-gray
     font-size $fs-4

@@ -72,9 +72,9 @@ module.exports = {
 layout: home
 ---
 ```
-Above part is required and depending on how you set `redirectToFirstSection` property in `config.js`
-If set to true, no more action is required. If set to false you may add any content, use existing sections designed for a landing page or create your own within the project. Out of the box, you will see rendered header and footer.
+Everything that goes under will be displayed on home page. You may add any content, use [existing sections](#LandingHeader) designed for a landing page or create your own within the project. Out of the box, you will see rendered header and footer.
 
+Example of home layout code
 ```html
 ---
 layout: home
@@ -87,6 +87,7 @@ layout: home
 <h1>Your own tag</h1>
 ...
 ```
+Important! If you don't need landing page, set `redirectToFirstSection` property in `config.js` to true.
 
 > Alternatively you can also fork one of our E-Books, e.g. [PM Book](https://github.com/netgurupm-ebook) and tweak it to your liking.
 
@@ -265,7 +266,7 @@ Section will display first three chapters with sections.
 />
 ```
 
-The `intro` and image realted properties are optional.
+The `intro` and image related properties are optional.
 
 This will produce a following outcome:
 ![BaseComparison](docs-assets/landing-chapters.png?raw=true)

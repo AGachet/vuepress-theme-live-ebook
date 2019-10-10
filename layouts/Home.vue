@@ -4,7 +4,7 @@
       class="landing__nav"
       :class="{'landing__nav--scrolled': isScrolled}"
     />
-    <Content class="landing__content" />
+    <Content class="landing__content isLanding" />
     <LandingFooter class="landing__footer" />
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
     return {
       offsetTop: 60,
       isScrolled: false,
+      scheduledAnimationFrame: false,
     }
   },
 
@@ -41,13 +42,15 @@ export default {
 
   methods: {
     handleScroll () {
-      const bodyScrollTop = document.documentElement.scrollTop || 0
-
-      if (bodyScrollTop > this.offsetTop) {
-        this.isScrolled = true
-      } else {
-        this.isScrolled = false
+      if (!this.scheduledAnimationFrame) {
+        requestAnimationFrame(() => this.setNavbarState())
       }
+      this.scheduledAnimationFrame = true
+    },
+    setNavbarState () {
+      const bodyScrollTop = document.documentElement.scrollTop || 0
+      this.isScrolled = bodyScrollTop > this.offsetTop
+      this.scheduledAnimationFrame = false
     },
   },
 }
@@ -58,6 +61,9 @@ export default {
 
 .landing
   background $c-landing-bg
+
+  &__content
+    overflow-x hidden
 
   &__nav
     padding 0 30px

@@ -23,7 +23,7 @@ export default {
 
   computed: {
     twitter () {
-      return this.$site.themeConfig.twitter
+      return this.$site.themeConfig.socials && this.$site.themeConfig.socials.twitter
     },
 
     baseUrl () {

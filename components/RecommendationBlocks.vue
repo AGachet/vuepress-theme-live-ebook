@@ -1,28 +1,26 @@
 <template>
-  <div>
-    <Carousel
-      v-if="isMobile"
-      class="recommendations-carousel"
-      :slides-btn-count="recommendations.length"
-    >
-      <RecomendationBlock
-        v-for="recommendation in recommendations"
-        :key="recommendation.name"
-        :recommendation="recommendation"
-        class="recommendation-item recommendation-item--mobile"
-      />
-    </Carousel>
-    <div
-      v-else
-      class="recommendations-items"
-    >
-      <RecomendationBlock
-        v-for="recommendation in recommendations"
-        :key="recommendation.name"
-        :recommendation="recommendation"
-        class="recommendation-item recommendation-item--desktop"
-      />
-    </div>
+  <Carousel
+    v-if="isMobile"
+    class="recommendations-carousel"
+    :slides-btn-count="recommendations.length"
+  >
+    <RecomendationBlock
+      v-for="recommendation in recommendations"
+      :key="recommendation.name"
+      :recommendation="recommendation"
+      class="recommendation-item recommendation-item--mobile"
+    />
+  </Carousel>
+  <div
+    v-else
+    class="recommendations-items"
+  >
+    <RecomendationBlock
+      v-for="recommendation in recommendations"
+      :key="recommendation.name"
+      :recommendation="recommendation"
+      class="recommendation-item recommendation-item--desktop"
+    />
   </div>
 </template>
 

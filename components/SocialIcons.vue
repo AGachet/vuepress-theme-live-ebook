@@ -2,28 +2,17 @@
   <div class="social-icons">
     <a
       v-for="(item, name) in $site.themeConfig.socials"
-      :key="item"
-      :href="item"
-      :title="`Link to Netguru profile on ${name}`"
+      :key="name"
+      :href="createSocialLink(name, item)"
+      :title="`Link to ${$site.themeConfig.company.name} profile on ${name}`"
       target="_blank"
       rel="noreferrer"
       class="social-icon"
     >
-      <FacebookLogo
-        v-if="name === 'facebook'"
-        class="social-icon__logo social-icon__logo--facebook"
-      />
-      <DribbleLogo
-        v-if="name === 'dribbble'"
-        class="social-icon__logo social-icon__logo--dribbble"
-      />
-      <BehanceLogo
-        v-if="name === 'behance'"
-        class="social-icon__logo social-icon__logo--behance"
-      />
-      <TwitterLogo
-        v-if="name === 'twitter'"
-        class="social-icon__logo social-icon__logo--twitter"
+      <Component
+        :is="iconFor(name)"
+        class="social-icon__logo"
+        :class="`social-icon__logo--${name}`"
       />
     </a>
   </div>
@@ -35,12 +24,35 @@ import DribbleLogo from '@theme/assets/svg/socialIcons/logo-dribbble.svg'
 import BehanceLogo from '@theme/assets/svg/socialIcons/logo-behance.svg'
 import TwitterLogo from '@theme/assets/svg/socialIcons/logo-twitter.svg'
 
+const socialPlatforms = {
+  facebook: {
+    url: 'https://www.facebook.com/',
+    icon: FacebookLogo,
+  },
+  twitter: {
+    url: 'https://twitter.com/',
+    icon: TwitterLogo,
+  },
+  dribbble: {
+    url: 'https://dribbble.com/',
+    icon: DribbleLogo,
+  },
+  behance: {
+    url: 'https://www.behance.net/',
+    icon: BehanceLogo,
+  },
+}
+
 export default {
-  components: {
-    FacebookLogo,
-    DribbleLogo,
-    BehanceLogo,
-    TwitterLogo,
+  computed: {
+    iconFor () {
+      return platformName => socialPlatforms[platformName] && socialPlatforms[platformName].icon
+    },
+  },
+  methods: {
+    createSocialLink (platformName, accountName) {
+      return socialPlatforms[platformName] && socialPlatforms[platformName].url + accountName
+    },
   },
 }
 </script>

@@ -33,14 +33,14 @@
         <div class="landing-intro__image-wrapper">
           <BaseImage
             class="landing-intro__image"
-            :class="{'landing-intro__image--desktop' : imgMobile.img.length}"
+            :class="{'landing-intro__image--desktop' : imgMobile.img}"
             :img="imgDesktop.img"
             :img2x="imgDesktop.img2x"
             :alt="imgDesktop.imgAlt"
           />
 
           <BaseImage
-            v-if="imgMobile.img.length"
+            v-if="imgMobile.img"
             :img="imgMobile.img"
             :img2x="imgMobile.img2x"
             :alt="imgMobile.imgAlt"
@@ -70,17 +70,17 @@ export default {
     subtitle: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     intro: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     tag: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     imgDesktop: {
       type: Object,
@@ -105,6 +105,9 @@ export default {
 .landing-intro-container
   position relative
   padding 30px 0 50px
+
+  @media (min-width: $screen-md-min)
+    min-height: 570px
 
   &::before
     content ''
@@ -212,6 +215,7 @@ export default {
 
 .tag
   display none
+  color: darken($c-landing-bg, 10%)
   font-size $fs-0
 
   @media (min-width: $screen-md-min)
