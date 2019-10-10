@@ -90,9 +90,9 @@ export default {
       type: Object,
       required: false,
       default: () => ({
-        img: '',
-        img2x: '',
-        imgAlt: '',
+        img: null,
+        img2x: null,
+        imgAlt: null,
       }),
     },
   },
