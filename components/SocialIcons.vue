@@ -26,19 +26,19 @@ import TwitterLogo from '@theme/assets/svg/socialIcons/logo-twitter.svg'
 
 const socialPlatforms = {
   facebook: {
-    url: 'https://www.facebook.com/',
+    url: 'https://www.facebook.com/:profile:',
     icon: FacebookLogo,
   },
   twitter: {
-    url: 'https://twitter.com/',
+    url: 'https://twitter.com/:profile:',
     icon: TwitterLogo,
   },
   dribbble: {
-    url: 'https://dribbble.com/',
+    url: 'https://dribbble.com/:profile:',
     icon: DribbleLogo,
   },
   behance: {
-    url: 'https://www.behance.net/',
+    url: 'https://www.behance.net/:profile:',
     icon: BehanceLogo,
   },
 }
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     createSocialLink (platformName, accountName) {
-      return socialPlatforms[platformName] && socialPlatforms[platformName].url + accountName
+      return socialPlatforms[platformName] && socialPlatforms[platformName].url.replace(':profile:', accountName)
     },
   },
 }
