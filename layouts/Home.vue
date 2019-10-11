@@ -11,6 +11,7 @@
 
 <script>
 import Rellax from 'rellax'
+import AOS from 'aos'
 import LandingNavbar from '@theme/components/LandingNavbar'
 import LandingFooter from '@theme/components/LandingFooter'
 
@@ -25,12 +26,6 @@ export default {
       offsetTop: 60,
       isScrolled: false,
       scheduledAnimationFrame: false,
-      parallaxConfig: {
-        speed: 2,
-        center: true,
-        round: true,
-      },
-      parallaxTriggerElement: '.js-parallax',
     }
   },
 
@@ -39,7 +34,10 @@ export default {
       window.addEventListener('scroll', this.handleScroll)
     }
 
-    this.$nextTick(() => this.initParallax())
+    this.$nextTick(() => {
+      this.initParallax()
+      this.initAOS()
+    })
   },
 
   destroyed () {
@@ -65,11 +63,29 @@ export default {
     },
 
     initParallax () {
-      this.parallax = new Rellax(this.parallaxTriggerElement, this.parallaxConfig)
+      const parallaxTriggerElement = '.js-parallax'
+      const config = {
+        parallaxConfig: {
+          speed: 2,
+          center: true,
+          round: true,
+        },
+      }
+
+      this.parallax = new Rellax(parallaxTriggerElement, config)
     },
 
     destroyParallax () {
       this.parallax.destroy()
+    },
+
+    initAOS () {
+      const config = {
+        once: true,
+        duration: 800,
+      }
+
+      AOS.init(config)
     },
   },
 }
@@ -77,6 +93,7 @@ export default {
 
 <style lang="stylus" scoped>
 @require '~@theme/styles/shared'
+@require '../node_modules/aos/dist/aos.css'
 
 .landing
   background $c-landing-bg

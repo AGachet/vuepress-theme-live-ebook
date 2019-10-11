@@ -2,7 +2,11 @@
   <section class="landing-intro-container">
     <div class="landing-intro">
       <div class="landing-intro__col landing-intro__col--text">
-        <div class="landing-intro__text-block">
+        <div
+          class="landing-intro__text-block"
+          data-aos="fade-in"
+          data-aos-delay="300"
+        >
           <span
             v-if="subtitle"
             class="subtitle"
@@ -29,7 +33,12 @@
           </span>
         </div>
       </div>
-      <div class="landing-intro__col landing-intro__col--image">
+      <div
+        class="landing-intro__col landing-intro__col--image"
+        data-aos="fade-in"
+        data-aos-delay="300"
+        data-aos-easing="ease-in-out"
+      >
         <div class="landing-intro__image-wrapper">
           <BaseImage
             class="landing-intro__image"

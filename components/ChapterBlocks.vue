@@ -1,9 +1,13 @@
 <template>
   <ul class="chapter-blocks">
     <li
-      v-for="chapter in chapters"
+      v-for="(chapter, index) in chapters"
       :key="chapter.key"
       class="chapter"
+      data-aos="fade-up"
+      :data-aos-delay="200 * (index + 1)"
+      data-aos-duration="1000"
+      data-aos-offset="-200"
     >
       <RouterLink
         class="chapter__content"

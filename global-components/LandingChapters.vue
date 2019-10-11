@@ -7,6 +7,7 @@
           :title="title"
           :subtitle="subtitle"
           :intro="intro"
+          animation-trigger-offset="-200"
         />
         <div
           v-if="img"
@@ -55,11 +56,12 @@ export default {
     intro: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     img: {
       type: String,
       required: false,
+      default: null,
     },
     imgAlt: {
       type: String,
