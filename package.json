@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "markdown-it": "^8.4.2",
+    "rellax": "^1.10.0",
     "siema": "^1.5.1",
     "vue": "^2.5.16",
     "vue-scrollto": "^2.13.0"

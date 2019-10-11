@@ -6,7 +6,8 @@
         class="recommendations__image-holder recommendations__image-holder--top"
       >
         <BaseImage
-          class="image"
+          class="image js-parallax"
+          data-rellax-speed="-2"
           :img="topImage.img"
           :alt="topImage.alt"
         />
@@ -28,7 +29,8 @@
       class="recommendations__image-holder recommendations__image-holder--bottom"
     >
       <BaseImage
-        class="image"
+        class="image js-parallax"
+        data-rellax-speed="-1"
         :img="bottomImage.img"
         :alt="bottomImage.alt"
       />

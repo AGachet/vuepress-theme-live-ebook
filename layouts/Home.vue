@@ -10,11 +10,11 @@
 </template>
 
 <script>
+import Rellax from 'rellax'
 import LandingNavbar from '@theme/components/LandingNavbar'
 import LandingFooter from '@theme/components/LandingFooter'
 
 export default {
-
   components: {
     LandingNavbar,
     LandingFooter,
@@ -25,6 +25,12 @@ export default {
       offsetTop: 60,
       isScrolled: false,
       scheduledAnimationFrame: false,
+      parallaxConfig: {
+        speed: 2,
+        center: true,
+        round: true,
+      },
+      parallaxTriggerElement: '.js-parallax',
     }
   },
 
@@ -32,12 +38,16 @@ export default {
     if (!this.$ssrContext) {
       window.addEventListener('scroll', this.handleScroll)
     }
+
+    this.$nextTick(() => this.initParallax())
   },
 
   destroyed () {
     if (!this.$ssrContext) {
       window.removeEventListener('scroll', this.handleScroll)
     }
+
+    this.destroyParallax()
   },
 
   methods: {
@@ -47,10 +57,19 @@ export default {
       }
       this.scheduledAnimationFrame = true
     },
+
     setNavbarState () {
       const bodyScrollTop = document.documentElement.scrollTop || 0
       this.isScrolled = bodyScrollTop > this.offsetTop
       this.scheduledAnimationFrame = false
+    },
+
+    initParallax () {
+      this.parallax = new Rellax(this.parallaxTriggerElement, this.parallaxConfig)
+    },
+
+    destroyParallax () {
+      this.parallax.destroy()
     },
   },
 }

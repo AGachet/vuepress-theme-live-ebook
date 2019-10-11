@@ -13,7 +13,8 @@
           class="image-wrapper"
         >
           <BaseImage
-            class="image"
+            class="image js-parallax"
+            data-rellax-speed="1"
             :img="img"
             :alt="imgAlt"
           />
