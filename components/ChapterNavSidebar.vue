@@ -18,9 +18,9 @@
         class="sidebar-nav__chapters"
       >
         <ChapterItem
-          class="chapter-item"
           v-for="chapter in currentChapters"
           :key="chapter.frontmatter.chapter_number"
+          class="chapter-item"
           :title="chapter.title"
           :number="chapter.frontmatter.chapter_number"
           :is-active="isActive(chapter)"
@@ -44,14 +44,14 @@
         appear-class-active="fade-right-appear-active"
       >
         <ChapterSections
-          class="chapter-sections"
           v-if="isSingleChapterVisible && !sectionsHidden"
+          class="chapter-sections"
           :sections="chapterSections"
         >
           <ChapterSection
-            class="chapter-section sidebar-link"
             slot="section"
             slot-scope="{ slug, title, hash }"
+            class="chapter-section sidebar-link"
             :slug="slug"
             :title="title"
             :hash.prop="hash"
@@ -89,11 +89,6 @@ export default {
     }
   },
 
-  created () {
-    this.activeChapter = this.$page
-    this.currentChapters = [this.$page]
-  },
-
   computed: {
     chapterSections () {
       return this.$page.headers && this.$page.headers.filter(header => header.level === 2)
@@ -102,6 +97,11 @@ export default {
     isSingleChapterVisible () {
       return this.currentChapters.length === 1
     },
+  },
+
+  created () {
+    this.activeChapter = this.$page
+    this.currentChapters = [this.$page]
   },
 
   methods: {
@@ -173,6 +173,7 @@ export default {
   &__company-logo
     position absolute
     bottom 0
+    max-width 106px
 
 .chapter-sections
   position absolute

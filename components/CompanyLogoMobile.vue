@@ -8,7 +8,7 @@
       rel="noopener"
     >
       <img
-        :src="$withBase($site.themeConfig.company.logo)"
+        :src="imgSrc"
         :alt="$site.themeConfig.company.name"
       >
     </a>
@@ -17,11 +17,20 @@
 
 <script>
 export default {
+  computed: {
+    imgSrc () {
+      const path = this.$site.themeConfig.company
+      const source = path.logoMobile ? this.$withBase(path.logoMobile) : this.$withBase(path.logo)
+
+      return source
+    },
+  },
 }
 </script>
 
 <style scoped lang="stylus">
-  .company-logo-container
-    width 100%
-    padding 2rem 0
+@require '~@theme/styles/shared'
+
+.company-logo-container
+  width 100%
 </style>

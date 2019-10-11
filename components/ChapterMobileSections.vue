@@ -9,12 +9,12 @@
       </RouterLink>
     </li>
     <li
+      v-for="section in sections"
+      :key="section.slug"
       class="toc-h2"
       :class="{
         isActive: section.slug === activeSection
       }"
-      v-for="section in sections"
-      :key="section.slug"
     >
       <a
         :href="`#${section.slug}`"

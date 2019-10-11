@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="btn_green" transform="translate(-37.000000, -15.000000)" stroke="currentColor" stroke-width="2">
+            <g id="btn">
+                <g id="book" transform="translate(38.000000, 16.000000)">
+                    <path d="M7,1.27272727 L7,12.0909091" id="Shape"></path>
+                    <path d="M10.5,0 C8.59090909,0 7,0.827272727 7,1.90909091 C7,0.827272727 5.40909091,0 3.5,0 C1.59090909,0 0,0.827272727 0,1.90909091 L0,12.7272727 C0,11.6454545 1.59090909,10.8181818 3.5,10.8181818 C5.40909091,10.8181818 7,11.6454545 7,12.7272727 C7,11.6454545 8.59090909,10.8181818 10.5,10.8181818 C12.4090909,10.8181818 14,11.6454545 14,12.7272727 L14,1.90909091 C14,0.827272727 12.4090909,0 10.5,0 Z" id="Shape" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

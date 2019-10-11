@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="LP-DESKTOP-v1" transform="translate(-894.000000, -890.000000)" stroke="currentColor" stroke-width="2">
+            <g id="chapter-01" transform="translate(682.000000, 848.000000)">
+                <g id="arrow-right" transform="translate(213.000000, 43.000000)">
+                    <path d="M0,7 L20,7" id="Shape"></path>
+                    <polyline id="Shape" points="13 0 20 7 13 14"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

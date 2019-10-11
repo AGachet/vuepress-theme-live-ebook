@@ -57,6 +57,20 @@ export default {
     ShareButtons,
   },
 
+  computed: {
+    currentPageIndex () {
+      return this.$chapters.indexOf(this.$page)
+    },
+
+    prevPage () {
+      return this.$chapters[this.currentPageIndex - 1] || null
+    },
+
+    nextPage () {
+      return this.$chapters[this.currentPageIndex + 1] || null
+    },
+  },
+
   created () {
     if (!this.$ssrContext) {
       document.body.classList.remove('no-scroll')
@@ -74,20 +88,6 @@ export default {
     if (!this.$ssrContext) {
       window.removeEventListener('keyup', this.handleKeyUp)
     }
-  },
-
-  computed: {
-    currentPageIndex () {
-      return this.$chapters.indexOf(this.$page)
-    },
-
-    prevPage () {
-      return this.$chapters[this.currentPageIndex - 1] || null
-    },
-
-    nextPage () {
-      return this.$chapters[this.currentPageIndex + 1] || null
-    },
   },
 
   methods: {

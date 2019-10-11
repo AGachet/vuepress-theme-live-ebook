@@ -25,7 +25,9 @@ module.exports = {
   title: 'Design Process by Netguru', // Page title
   description: 'Live E-Book with useful informations about Design Process',
   theme: 'live-ebook', // Important! This is the name of this theme
+  redirectToFirstSection: false, // Important! Control if `/` should redirect to 1st chapter or not
   base: '/', // Base URL, leave as is if you don't serve the book from a folder
+  contactUrl: '/', // Url on which user will be redirected after click on contact
   head: [
     ['link', { rel: 'icon', href: '/images/favicon.ico' }],
     ['meta', { property: 'og:type', content: 'website' }],
@@ -39,8 +41,15 @@ module.exports = {
       name: 'Netguru',
       url: 'https://www.netguru.co',
       logo: '/images/netguru.svg'
+      logoMobile: '/images/netguru_letter.svg',
+      copyRights: '© 2019 Copyrights by Netguru. All rights reserved.'
     },
-    twitter: 'netguru',
+    socials: {
+      facebook: 'netguru',
+      twitter: 'netguru',
+      dribbble: 'netguru',
+      behance: 'netguru',
+    },
   },
 
   chainWebpack: (config) => {
@@ -62,8 +71,24 @@ module.exports = {
 layout: home
 ---
 ```
+Everything that goes under will be displayed on home page. You may add any content, use [existing sections](#LandingHeader) designed for a landing page or create your own within the project. Out of the box, you will see rendered header and footer.
 
-> Alternatively you can also fork one of our E-Books, e.g. [PM Book](https://github.com/netguru/pm-book) and tweak it to your liking.
+Example of home layout code
+```html
+---
+layout: home
+---
+<LandingChapters
+  intro="Short intro text"
+  img="image.svg"
+  imgAlt="image is displayed under intro text"
+/>
+<h1>Your own tag</h1>
+...
+```
+Important! If you don't need landing page, set `redirectToFirstSection` property in `config.js` to true.
+
+> Alternatively you can also fork one of our E-Books, e.g. [PM Book](https://github.com/netgurupm-ebook) and tweak it to your liking.
 
 ### Example e-book file tree:
 
@@ -80,7 +105,7 @@ your-ebook
 │   ├── 01-lorem-ipsum.md
 │   ├── 02-dolor-sit.md
 │   └── 03-amet-consectetur.md
-├── index.md <-- home page (required, although it's there only to redirect users to 1st chapter) 
+├── index.md <-- home page (required, although when you set redirectToFirstSection to true, it's there only to redirect users to 1st chapter) 
 └── package.json
 ```
 
@@ -106,6 +131,39 @@ Chapter content goes here.
 - Use only one H1 heading (`# ...`).
 
 See [example chapter](https://raw.githubusercontent.com/netguru/design-process/master/chapters/01-project-introduction-and-setup.md) for reference.
+
+
+### Landing page example
+```
+---
+layout: home
+---
+
+<LandingHeader
+  title="Some title to be render"
+  subtitle="Short subtitle"
+  intro="Any text e.g. Learn new things about your design process."
+  tag="Version 1.0"
+  :imgDesktop="{
+    img: 'banner-desktop.png',
+    img2x: '',
+    imgAlt: '',
+  }"
+  :imgMobile="{
+    img: 'banner-mobile.png',
+    img2x: '',
+    imgAlt: '',
+  }"
+/>
+
+<LandingChapters
+  intro="Short intro text"
+  img="image.svg"
+  imgAlt="image is displayed under intro text"
+/>
+
+...
+```
 
 ## Available components
 
@@ -163,9 +221,101 @@ You can insert DOs and DONT's sections by using following syntax:
   ]"
 />
 ```
-
 This will produce a following outcome:
 ![BaseComparison](docs-assets/base-comparison.png?raw=true)
+
+### LandingHeader
+
+Section is designed to be used on the home page. You can start `index.md` with this section.
+
+```html
+<LandingHeader
+  title="Some title to be render"
+  subtitle="Short subtitle"
+  intro="Any text e.g. Learn new things about your design process."
+  tag="Version 1.0"
+  :imgDesktop="{
+    img: 'banner-desktop.png',
+    img2x: '',
+    imgAlt: '',
+  }"
+  :imgMobile="{
+    img: 'banner-mobile.png',
+    img2x: '',
+    imgAlt: '',
+  }"
+/>
+```
+
+The `imgMobile` property is optional. If not passed, on mobile version, first image will be used.
+Also, the `img2x` property is optional.
+
+This will produce a following outcome:
+![BaseComparison](docs-assets/landing-header.png?raw=true)
+
+### LandingChapters
+
+Section will display first three chapters with sections.
+
+```html
+<LandingChapters
+  intro="Short intro text"
+  img="image.svg"
+  imgAlt="image is displayed under intro text"
+/>
+```
+
+The `intro` and image related properties are optional.
+
+This will produce a following outcome:
+![BaseComparison](docs-assets/landing-chapters.png?raw=true)
+
+### LandingRecommendations
+
+Section is designed to display three testimonial/recommendation blocks. Passing less than three won't break the layout though.
+
+```html
+<LandingRecommendations
+  title="Recommendations"
+  subtitle="users"
+  intro="Learn new things about your design process."
+  :recommendations="[
+    {
+      name: 'Grzegorz',
+      position: 'Some Text',
+      recommendation: 'Proin ut condimentum augue, in dignissim orci. Praesent vulputate venenatis.',
+      photo: 'test.jpg'
+    },
+    {
+      name: 'Some Grzegorz',
+      position: 'Can Be Position',
+      recommendation: 'Proin ut condimentum augue, in dignissim orci. Praesent vulputate venenatis.',
+      photo: 'test.jpg'
+    },
+    {
+      name: 'Any Name',
+      position: 'Frontend Developer',
+      recommendation: 'Proin ut condimentum augue, in dignissim orci. Praesent vulputate venenatis.',
+      photo: 'test.jpg'
+    }
+  ]"
+  :images="[
+    {
+      img: 'calendar.svg',
+      imgAlt: 'Calendar Ilustaration',
+    },
+    {
+      img: 'desk.svg',
+      imgAlt: 'Desk Ilustaration',
+    },
+  ]"
+/>
+```
+
+The `images` property is optional. No image will be displayed if empty. You are also good to go to pass only one. Properties `name, position, recommendation, photo` are required.
+
+This will produce a following outcome:
+![BaseComparison](docs-assets/landing-recommendations.png?raw=true)
 
 ## Customization
 
