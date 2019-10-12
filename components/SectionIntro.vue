@@ -52,7 +52,7 @@ export default {
       validator: (prop) => ['left', 'right', 'center'].includes(prop),
     },
     animationTriggerOffset: {
-      type: String,
+      type: Number,
       required: false,
       default: null,
     },

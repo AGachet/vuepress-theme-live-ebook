@@ -80,12 +80,10 @@ export default {
     },
 
     initAOS () {
-      const config = {
+      AOS.init({
         once: true,
         duration: 800,
-      }
-
-      AOS.init(config)
+      })
     },
   },
 }

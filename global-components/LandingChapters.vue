@@ -7,7 +7,7 @@
           :title="title"
           :subtitle="subtitle"
           :intro="intro"
-          animation-trigger-offset="-200"
+          :animation-trigger-offset="-200"
         />
         <div
           v-if="img"
@@ -15,7 +15,7 @@
         >
           <BaseImage
             class="image js-parallax"
-            data-rellax-speed="1"
+            data-rellax-speed="-0.5"
             :img="img"
             :alt="imgAlt"
           />
