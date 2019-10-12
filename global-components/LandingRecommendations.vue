@@ -6,9 +6,10 @@
         class="recommendations__image-holder recommendations__image-holder--top"
       >
         <BaseImage
-          class="image"
           :img="topImage.img"
           :alt="topImage.alt"
+          class="image js-parallax"
+          data-rellax-speed="-2"
         />
       </div>
       <SectionIntro
@@ -28,9 +29,10 @@
       class="recommendations__image-holder recommendations__image-holder--bottom"
     >
       <BaseImage
-        class="image"
         :img="bottomImage.img"
         :alt="bottomImage.alt"
+        class="image js-parallax"
+        data-rellax-speed="-1"
       />
     </div>
   </section>

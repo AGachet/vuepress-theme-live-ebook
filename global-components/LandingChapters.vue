@@ -7,13 +7,15 @@
           :title="title"
           :subtitle="subtitle"
           :intro="intro"
+          :animation-trigger-offset="-200"
         />
         <div
           v-if="img"
           class="image-wrapper"
         >
           <BaseImage
-            class="image"
+            class="image js-parallax"
+            data-rellax-speed="-0.5"
             :img="img"
             :alt="imgAlt"
           />
@@ -54,11 +56,12 @@ export default {
     intro: {
       type: String,
       required: false,
-      default: '',
+      default: null,
     },
     img: {
       type: String,
       required: false,
+      default: null,
     },
     imgAlt: {
       type: String,

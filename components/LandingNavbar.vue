@@ -1,6 +1,12 @@
 <template>
-  <header class="header">
-    <nav class="nav">
+  <header
+    class="header"
+  >
+    <nav
+      data-aos="fade-in"
+      data-aos-delay="100"
+      class="nav"
+    >
       <CompanyLogo class="nav__logo nav__logo--desktop" />
       <CompanyLogoMobile class="nav__logo nav__logo--mobile" />
       <div>

@@ -16,10 +16,13 @@
     class="recommendations-items"
   >
     <RecomendationBlock
-      v-for="recommendation in recommendations"
+      v-for="(recommendation, index) in recommendations"
       :key="recommendation.name"
       :recommendation="recommendation"
       class="recommendation-item recommendation-item--desktop"
+      data-aos="fade-up"
+      :data-aos-delay="200 * (index + 1)"
+      data-aos-duration="1000"
     />
   </div>
 </template>

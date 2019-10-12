@@ -5,14 +5,22 @@
   >
     <span
       class="section-intro__subtitle"
+      data-aos="fade-up"
+      :data-aos-offset="animationTriggerOffset"
     >
       {{ subtitle }}
     </span>
-    <h2 class="section-intro__title">
+    <h2
+      class="section-intro__title"
+      data-aos="fade-up"
+      :data-aos-offset="animationTriggerOffset"
+    >
       {{ title }}
     </h2>
     <p
       class="section-intro__text"
+      data-aos="fade-up"
+      :data-aos-offset="animationTriggerOffset"
     >
       {{ intro }}
     </p>
@@ -42,6 +50,11 @@ export default {
       required: false,
       default: 'left',
       validator: (prop) => ['left', 'right', 'center'].includes(prop),
+    },
+    animationTriggerOffset: {
+      type: Number,
+      required: false,
+      default: null,
     },
   },
 }
