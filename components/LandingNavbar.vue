@@ -59,14 +59,14 @@ export default {
   padding 0
 
   &--desktop
-    width 118px
+    max-width 118px
     display none
 
     @media (min-width: $screen-sm-min)
       display inline-block
 
   &--mobile
-    width 18px
+    max-width 18px
 
     @media (min-width: $screen-sm-min)
       display none

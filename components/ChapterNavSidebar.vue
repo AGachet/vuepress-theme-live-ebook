@@ -174,6 +174,7 @@ export default {
     position absolute
     bottom 0
     max-width 106px
+    padding 2rem 0
 
 .chapter-sections
   position absolute

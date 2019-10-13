@@ -1,18 +1,16 @@
 <template>
-  <div class="company-logo-container">
-    <a
-      class="company-logo"
-      :href="$site.themeConfig.company.url"
-      :title="$site.themeConfig.company.name"
-      target="_blank"
-      rel="noopener"
+  <a
+    class="company-logo"
+    :href="$site.themeConfig.company.url"
+    :title="$site.themeConfig.company.name"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      :src="imgSrc"
+      :alt="$site.themeConfig.company.name"
     >
-      <img
-        :src="imgSrc"
-        :alt="$site.themeConfig.company.name"
-      >
-    </a>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -31,6 +29,6 @@ export default {
 <style scoped lang="stylus">
 @require '~@theme/styles/shared'
 
-.company-logo-container
+.company-logo
   width 100%
 </style>

@@ -5,7 +5,7 @@
     class="read-button"
   >
     <BookIcon class="read-button__icon" /> Read
-  </RouterLink>
+</RouterLink>
 </template>
 
 <script>

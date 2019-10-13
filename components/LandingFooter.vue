@@ -75,14 +75,15 @@ export default {
 
   &__col
     flex 1
+    width 100%
 
     &--center
       display flex
-      justify-content center
       align-items center
       margin-top 24px
 
       @media (min-width: $screen-md-min)
+        justify-content center
         margin-top 0
 
     &--right
@@ -96,6 +97,7 @@ export default {
     margin-left 30px
 
   &__logo
-    width 100px
+    display inline-block
+    max-width 100px
     padding 0
 </style>
