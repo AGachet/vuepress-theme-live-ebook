@@ -152,9 +152,9 @@ export default {
   @media (min-width $screen-sm-min)
     width 360px
 
-  &__exit-button
-
   &__logo
+    display block
+    max-width 106px
     margin-top 20px
     padding 2rem 0
 
