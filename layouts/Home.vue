@@ -12,6 +12,7 @@
 <script>
 import Rellax from 'rellax'
 import AOS from 'aos'
+import 'aos/dist/aos.css'
 import LandingNavbar from '@theme/components/LandingNavbar'
 import LandingFooter from '@theme/components/LandingFooter'
 
@@ -35,17 +36,18 @@ export default {
     }
 
     this.$nextTick(() => {
-      this.initParallax()
-      this.initAOS()
+      if (!this.$ssrContext) {
+        this.initParallax()
+        this.initAOS()
+      }
     })
   },
 
   destroyed () {
     if (!this.$ssrContext) {
       window.removeEventListener('scroll', this.handleScroll)
+      this.destroyParallax()
     }
-
-    this.destroyParallax()
   },
 
   methods: {
@@ -91,7 +93,6 @@ export default {
 
 <style lang="stylus" scoped>
 @require '~@theme/styles/shared'
-@require '../node_modules/aos/dist/aos.css'
 
 .landing
   background $c-landing-bg

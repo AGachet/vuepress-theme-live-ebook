@@ -9,7 +9,7 @@
           :img="topImage.img"
           :alt="topImage.alt"
           class="image js-parallax"
-          data-rellax-speed="-2"
+          data-rellax-speed="-1"
         />
       </div>
       <SectionIntro
@@ -32,7 +32,7 @@
         :img="bottomImage.img"
         :alt="bottomImage.alt"
         class="image js-parallax"
-        data-rellax-speed="-1"
+        data-rellax-speed="-0.75"
       />
     </div>
   </section>
@@ -120,9 +120,11 @@ export default {
 
     &--bottom
       left 0
-      bottom 140px
+      bottom 0
       width 350px
+      padding-bottom 140px
       z-index 20
+      overflow hidden
 
 .image
   display none

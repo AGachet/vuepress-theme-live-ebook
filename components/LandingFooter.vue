@@ -96,6 +96,7 @@ export default {
     margin-left 30px
 
   &__logo
-    width 100px
+    display inline-block
+    max-width 100px
     padding 0
 </style>

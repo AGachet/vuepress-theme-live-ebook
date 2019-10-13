@@ -156,6 +156,7 @@ export default {
 
   &__logo
     margin-top 20px
+    padding 2rem 0
 
 .sidebar-content
   >>> ul
