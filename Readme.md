@@ -51,9 +51,15 @@ module.exports = {
       behance: 'netguru',
     },
     bodyScripts: [ // Allows to pass additional scripts at the end of body
-      // First pass html element, than object with attributes. Key 'content' is reserved to pass values in innerHTML
-      ['script', { id: 'some-analytics', async: true, defer: true, src: '//some-analytics.js' }],
-      ['noscript', { id: 'some-iframe-analytics', defer: true, src: 'asd', content: '<h1>It goes inside element</h1>' }]
+      {
+        tagName: 'script', // required
+        attributes: { id: 'some-analytics', async: true, defer: true, src: '//some-analytics.js' } // required
+      },
+      {
+        tagName: 'noscript', // required
+        attributes: {}, // required (can be empty)
+        innerHTML: '<h1>Any content</h1>' // optional
+      }
     ],
   },
 

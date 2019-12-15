@@ -28,23 +28,26 @@ export default {
   beforeMount () {
     const bodyScripts = this.$site.themeConfig.bodyScripts
     if (bodyScripts && bodyScripts.length) {
-      bodyScripts.map(scriptConfig => this.createBodyScripts(scriptConfig))
+      bodyScripts.forEach(scriptConfig => this.createBodyScripts(scriptConfig))
     }
   },
 
   methods: {
     createBodyScripts (config) {
-      const htmlElement = document.createElement(config[0])
-      const elementAttributes = config[1]
+      const { tagName, attributes, innerHTML } = config
 
-      Object.keys(elementAttributes).map(attr => {
-        if (attr === 'content') {
-          htmlElement.innerHTML = elementAttributes[attr]
-          return
-        };
+      const htmlElement = document.createElement(tagName)
+      const attributesKeys = Object.keys(attributes)
 
-        htmlElement.setAttribute(attr, elementAttributes[attr])
-      })
+      if (attributesKeys.length) {
+        attributesKeys.forEach(attr => {
+          htmlElement.setAttribute(attr, attributes[attr])
+        })
+      }
+
+      if (innerHTML && innerHTML.length) {
+        htmlElement.innerHTML = innerHTML
+      }
 
       document.body.appendChild(htmlElement)
     },
