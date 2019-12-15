@@ -24,6 +24,31 @@ export default {
       return layout.toLowerCase()
     },
   },
+
+  beforeMount () {
+    const bodyScripts = this.$site.themeConfig.bodyScripts
+    if (bodyScripts && bodyScripts.length) {
+      bodyScripts.map(scriptConfig => this.createBodyScripts(scriptConfig))
+    }
+  },
+
+  methods: {
+    createBodyScripts (config) {
+      const htmlElement = document.createElement(config[0])
+      const elementAttributes = config[1]
+
+      Object.keys(elementAttributes).map(attr => {
+        if (attr === 'content') {
+          htmlElement.innerHTML = elementAttributes[attr]
+          return
+        };
+
+        htmlElement.setAttribute(attr, elementAttributes[attr])
+      })
+
+      document.body.appendChild(htmlElement)
+    },
+  },
 }
 </script>
 
