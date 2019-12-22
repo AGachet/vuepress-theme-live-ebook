@@ -22,7 +22,10 @@
         </div>
       </div>
       <div class="landing-chapters__col landing-chapters__col--chapters">
-        <ChapterBlocks :chapters="chapters" />
+        <ChapterBlocks
+          :chapters="chapters"
+          :limit-section-in-chapter="limitSectionInChapter"
+        />
       </div>
       <ReadButton class="button" />
     </div>
@@ -67,11 +70,23 @@ export default {
       type: String,
       default: '',
     },
+    chapterDisplayStart: {
+      type: Number,
+      default: 0,
+    },
+    limitSectionInChapter: {
+      type: Number,
+      default: undefined,
+    },
   },
 
   computed: {
+    chapterDisplayEnd () {
+      return this.chapterDisplayStart + 3
+    },
+
     chapters () {
-      return this.$chapters.slice(0, 3)
+      return this.$chapters.slice(this.chapterDisplayStart, this.chapterDisplayEnd)
     },
   },
 }

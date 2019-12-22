@@ -50,11 +50,17 @@ export default {
       type: Array,
       required: true,
     },
+    limitSectionInChapter: {
+      type: Number,
+      default: undefined,
+    },
   },
 
   computed: {
     sections () {
-      return chapter => chapter.headers && chapter.headers.filter(chapter => chapter.level === 2)
+      return chapter => chapter.headers && chapter.headers
+        .filter(chapter => chapter.level === 2)
+        .slice(0, this.limitSectionInChapter)
     },
   },
 }

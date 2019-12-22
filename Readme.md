@@ -255,13 +255,17 @@ This will produce a following outcome:
 
 ### LandingChapters
 
-Section will display first three chapters with sections.
+Section will display first three chapters with sections. You can provide additioanl option `chapterDisplayStart` and pass any number. That number will be treated as a start chapter.
+
+There is also an option `limitSectionInChapter` to limit displayed sections in chapters. By default, all sections will be displayed.
 
 ```html
 <LandingChapters
   intro="Short intro text"
   img="image.svg"
   imgAlt="image is displayed under intro text"
+  :chapterDisplayStart="3" // optional, default is 0
+  :limitSectionInChapter="7" // optional, default shows all
 />
 ```
 
